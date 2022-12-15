@@ -1,0 +1,27 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+
+.banner{
+  min-height: 215px;
+  background-color: $color-light-grey-1;
+  padding: 6rem 7rem;
+  background-image: url("/assets/img/book.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  h1{
+    font-size: 46px;
+    line-height: 41px;
+    color: $color-white;
+  }
+
+  @include for-size(phone-only){
+      padding: 6rem 2rem;
+      h1{
+        font-size: 46px;
+        line-height: 41px;
+        text-align: center;
+      }
+    }
+}

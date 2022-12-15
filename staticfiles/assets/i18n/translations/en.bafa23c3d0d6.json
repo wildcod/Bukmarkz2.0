@@ -1,0 +1,232 @@
+{
+  "welcome": "Welcome to Bukmarkz",
+  "subtitle": {
+    "label1": "Manage your bookmarks like a BOSS"
+  },
+  "join_button": "Join Bukmarkz",
+  "video_section_title": "About BukMarkz",
+  "features_title": "BukMarkz Features",
+  "features_subtitle": "BukMarkz! A free online bookmark manager that helps you organise and keep track of all your data. Whether it is your favorite book, a restaurant you want to visit or a prospective job you’d like to try, you can keep records of almost anything and everything on the cloud. Bukmarkz makes it possible for you to access it all via any electronic device such as your computer, tablet or phone, without the necessity to synchronise.",
+  "features_description": "Moreover, this bookmark service also gives you suggestions based on your favorites. Hence, you can always learn about similar places, opportunities or products that may be of interest to you and are available online.",
+  "feature": {
+    "label1": "A free bookmark manager that can be upgraded at a very nominal fee",
+    "label2": "Access your bookmarks from any device such as your PC, smartphone, tablet, or from any device at any time, anywhere at your convenience",
+    "label3": "Customer support available, all you have to do is ask and our technical team will list down the best options available for you.",
+    "label4": "A bookmark manager that supports several web browsers, chrome, mozilla firefox, internet explorer, opera and many more. ",
+    "label5": "Commonly used bookmarks are available by default"
+  },
+  "stats": {
+    "1": "Basic Clients",
+    "2": "Premium Clients",
+    "3": "Bookmarks stored",
+    "4": "Countries"
+  },
+  "services_title": "BukMarkz Services",
+  "services_subtitle": "At Bukmarkz we aspire to make managing information simple and hassle-free, while ensuring our users have strict confidentiality. We believe in providing a long-lasting online bookmark service to businesses, teams and individuals alike. The best part is that it is free of charge or at a very minimal price. Furthermore, this bookmark service is available in 3 different languages, English, French, and Spanish for your convenience. ",
+  "service": {
+    "1": {
+      "title": "Import Bookmarks",
+      "description": "Import bookmarks from any browser or any other bookmark application"
+    },
+    "2": {
+      "title": "Categorize Bookmarks",
+      "description": "Categorize your bookmarks for coordination and easy access."
+    },
+    "3": {
+      "title": "Chrome Extension",
+      "description": "Extensions allow you to easily auto save the chosen URL and title from any web browser and save them under the selected category available in your dashboard in this bookmark manager’s cloud."
+    },
+    "4": {
+      "title": "Referral System",
+      "description": "Earn from our referral programs, simply recommend our bookmark manager to your friends and upon every new referral member you get 50% of the premium purchase fee. "
+    }
+  },
+  "sub_title": "Price Plan",
+  "plan": {
+    "basic": {
+      "title": "Basic",
+      "feature": {
+        "1": "Free to add any bookmarks the user wants.",
+        "2": "Free to share any bookmarks the user prefers.",
+        "3": "Upto 5 bookmarks categories can be stored in the dashboard with a limited storage capacity."
+      }
+    },
+    "premium": {
+      "title": "Premium",
+      "feature": {
+        "1": "Users get unlimited storage capacity and are allowed to save as many bookmarks as they want.",
+        "2": "They are allocated a special privacy privilege where they can password protect certain bookmarks to prevent unauthorised access.",
+        "3": "Ask for help via the “Ask Now’ link to get your shopping needs fulfilled instantly through expert recommendations.",
+        "4": "Earn via referrals, 50% of the fee is allocated to the user for every new premium subscriber brought in.",
+        "5": "More background themes to choose from."
+      }
+    }
+  },
+  "divider": {
+    "1": {
+      "title": "'' The secret of getting ahead is getting started. ''"
+    }
+  },
+  "aids_card_title": "Ask for help",
+  "aids_card_description": "The ‘ask now’ link is solely for your convenience. If you need anything or you want to find something all you have to do is type in the ‘ask now’ link and our team will provide you with the best possible options available on the net instantly. You can then make your choice and you will be redirected to the chosen site. Hence, we bring shopping and solutions for your queries through expert recommendations at your fingertips via the best bookmark manager",
+  "ask_button": "Ask Now!",
+  "aids_table_name": "History",
+  "col_searched": "Searched",
+  "col_price": "Price",
+  "col_country": "Country",
+  "col_zip": "Zip",
+
+  "archive_card_title": "Archive",
+
+  "contact_section_title": "Contact us",
+  "contact_section_description": "Description",
+  "contact_label": {
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "submit"
+  },
+
+  "nav": {
+    "register": "Register",
+    "login": "Login",
+    "signup_login" : "Sign Up/Login",
+    "dashboard": "Dashboard",
+    "import": "Import",
+    "sign_out": "Sign Out"
+  },
+  "recommendation_card_title": "Recommendation",
+
+  "tab_nav": {
+    "main": "Main",
+    "dashboard": "My dashboard",
+    "privacy": "Privacy",
+    "offers": "Offers"
+  },
+
+  "checkout": {
+    "name": "Name",
+    "email": "Email",
+    "zip": "Zip",
+    "pay": "Pay",
+    "pay_from_wallet": "Pay from wallet",
+    "wrong": "Something went wrong!",
+    "try_again": "Try again!"
+  },
+
+  "import_label": "Import Your Bookmarks",
+  "export_label": "Export your browser bookmarks as ",
+  "file": "file",
+  "select_label": "Select the file",
+  "select_error": "No file selected",
+  "cat_name_error": "Minimum characters should be 5",
+  "drop_label": "Drop the files here ...",
+  "drop_file_placeholder": "Drag 'n' drop <b>.html</b> file here, or click to select file",
+
+  "invite": {
+    "sent": "Invitation sent!",
+    "error": "Something went wrong!",
+    "invite_label": "Invite Your Email Contacts",
+    "connected_label": "Your Connected E-mail",
+    "contact_label": "Your Gmail Contacts",
+    "invite": "Invite",
+    "disconnect": "Disconnect",
+    "connect": "Connect",
+    "to_dashboard": "To Dashboard"
+  },
+
+  "login": {
+    "login_btn": "Login Now",
+    "username": "Username",
+    "password": "Password",
+    "check_me_out": "Check me out",
+    "login": "Login",
+    "reset": "Reset"
+  },
+  "register": {
+    "header": "Register Below",
+    "email_label": "Email Address",
+    "info": "We'll never share your email with anyone else.",
+    "country": "Country",
+    "confirm_label": "Confirm Password"
+  },
+  "password": {
+    "confirm": {
+      "header": "Password has been set successfully",
+      "to_account": "to your account",
+      "enter_label": "Enter new password",
+      "new_label": "New Password",
+      "confirm_label": "Confirm New Password",
+      "done": "Done"
+    },
+    "reset": {
+      "header": "Email has been sent to your inbox",
+      "subtitle": "Confirm to reset your password",
+      "reset_header": "Reset Password",
+      "email_label": "Email",
+      "submit": "Submit"
+    }
+  },
+
+  "profile": {
+    "header": "Profile",
+    "nav": {
+      "details": "Details",
+      "referrals": "My Referrals",
+      "stats": "Dashboard Stats"
+    },
+    "subscription_label": "Subscription",
+    "days_remaining": "days remaining",
+    "choose_label": "Choose Dashboard Background",
+    "referral": {
+      "link": "Your invite link:",
+      "copy_label": "(Click on the link to copy)",
+      "share_label": "Share on your social media",
+      "gmail_contacts": "Gmail Contacts",
+      "stats_label": "You referral statistics",
+      "friends_registered": "Friends registered",
+      "friends_subbed": "Friends Subbed",
+      "wallet": "Wallet",
+      "withdraw": "Withdraw",
+      "guide_header": "Guide",
+      "guide_text": "Our referral program is for the premium subscribers. You get to earn 50% of the subscription fee for every new subscriber you bring in via your recommendation. A minimum of two referrals is compulsory to withdraw your earnings."
+    },
+    "stats": {
+      "error": "No bookmarks stored",
+      "start_label": "Start Now!",
+      "category": "Category",
+      "bookmarks": "Bookmarks",
+      "rate": "Percentage"
+    }
+  },
+  "withdraw": {
+    "valid": "Valid Thru",
+    "amount": "amount",
+    "success": "Transaction Received, wait until we will process it!"
+  },
+
+  "footer": {
+    "home": "Home",
+    "team": "Team",
+    "contact": "Contact",
+    "about": "About",
+    "statistics": "Statistics",
+    "privacy": "Privacy",
+    "terms": "Terms & Conditions",
+    "news": "News",
+    "community": "Community"
+  },
+
+  "models": {
+    "close": "Close",
+    "save": "Save",
+    "create_category": {
+      "header": "Add Category",
+      "label": {
+        "title": "Title"
+      }
+    }
+  }
+
+}

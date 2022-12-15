@@ -1,0 +1,35 @@
+//screenSizes
+$phone-min: 320px;
+$phone-only: 599px;
+$tablet-portrait-up: 600px;
+$tablet-landscape-up: 900px;
+$desktop-up: 1200px;
+$big-desktop-up: 1800px;
+
+
+//header
+$desktop-header-height: 91px;
+$desktop-static-home-height:$desktop-header-height;
+$phone-header-height: 51px;
+
+//aspect ration
+$home-banner-aspect-ratio-desktop: 2.49;
+$home-banner-aspect-ratio-mobile: 1.285;
+
+//cards
+$price-card-max-width: 1fr;
+$price-card-min-width: 260px;
+
+
+//colors
+$color-medium-grey: #636363;
+$color-light-grey: #959595;
+$color-light-grey-1: #dddddd;
+$color-light-grey-2: #F1F2F6;
+$color-light-grey-3: #C4C4C4;
+$color-dark-grey: #363636;
+$color-medium-grey-1: #A0A0A0;
+$color-primary-green: #a3c93a;
+$color-white: #ffffff;
+$color-primary-black: #252525;
+$color-black:#000;

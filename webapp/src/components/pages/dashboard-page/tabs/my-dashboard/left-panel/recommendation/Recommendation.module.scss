@@ -1,0 +1,54 @@
+@import "../../../../../../../scss/mixins";
+@import "../../../../../../../scss/variables";
+
+
+
+li > .row{
+  display: flex;
+  flex: 1;
+  margin-bottom: 5px;
+
+  > .left{
+    flex: 4;
+    .title{
+      display: flex;
+      align-items: center;
+      > a > span{
+        font-size: 14px;
+        color: $color-black;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+    p{
+      padding-bottom: 0;
+      font-size: 13px;
+    }
+  }
+  > .right{
+    flex: 1;
+    display: flex;
+    .wrap{
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      > span{
+          border: 1px solid $color-black;
+          font-size: 10px;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: 400;
+          text-align: center;
+          cursor: pointer;
+          padding: 2px;
+          line-height: 1.5;
+          border-radius: .25rem;
+          height: 20px;
+          width: 20px;
+          margin: 4px;
+      }
+    }
+  }
+}

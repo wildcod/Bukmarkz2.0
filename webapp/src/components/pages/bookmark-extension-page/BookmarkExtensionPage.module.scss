@@ -1,0 +1,42 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+
+.formContainer{
+  padding: 3rem;
+  > form{
+    display: flex;
+    flex-direction: column;
+    .input{
+      display: flex;
+      margin-bottom: 1.5rem;
+      label{
+        color:#546E7A;
+        font-size: 14px;
+        min-width: 90px;
+        margin-right: 10px;
+      }
+      input,select {
+        border: none;
+        border-bottom: solid 1px #b0bec5;
+        background-color: #c6d6df;
+        min-width: 300px;
+        padding: 5px;
+        font-size: 14px;
+        outline: none;
+      }
+    }
+    .btnContainer{
+      display: flex;
+      margin-top: 2rem;
+      .btn{
+        width: 10%;
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+.login{
+  width: 30%;
+  margin: 0 auto;
+}

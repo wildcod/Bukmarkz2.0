@@ -1,0 +1,230 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+
+.headerWrapper {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  z-index: 200;
+  align-items: center;
+  background-color: $color-white;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  height: $desktop-header-height;
+  padding: 2rem 5rem;
+  border-bottom: 1px solid $color-light-grey-1;
+
+  .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1;
+
+    .menuBar {
+      display: none;
+
+      @include for-size(phone-only) {
+        display: block;
+      }
+    }
+
+    .logo {
+      flex: 2;
+      display: flex;
+
+      >a {
+        margin-bottom: 1rem;
+      }
+
+      img {
+        width: 204px;
+        height: 31px;
+      }
+
+      .desktopLogo {
+        display: block;
+      }
+
+      .mobileLogo {
+        display: none;
+      }
+
+      @include for-size(phone-only) {
+        margin-left: 7px;
+
+        >a {
+          margin-bottom: 0;
+        }
+
+        .desktopLogo {
+          display: none;
+        }
+
+        .mobileLogo {
+          width: 40px;
+          height: 40px;
+          display: block;
+        }
+      }
+    }
+
+    .languageContainer {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      margin-left: 10px;
+
+      @include for-size(phone-only) {
+        margin-bottom: 0;
+      }
+    }
+
+    .navLinks {
+      flex: 3;
+
+      nav {
+        display: flex;
+        align-items: center;
+
+        @include for-size(phone-only) {
+          justify-content: flex-end;
+        }
+      }
+
+      ul {
+        display: flex;
+        width: 100%;
+        padding: 0;
+        justify-content: space-evenly;
+
+        li,
+        li>a {
+          font-size: 13px;
+          font-weight: 700;
+          text-transform: uppercase;
+          color: $color-medium-grey;
+          cursor: pointer;
+
+          &:hover {
+            color: $color-primary-green;
+          }
+        }
+
+        li.active>a {
+          color: $color-primary-green;
+          text-decoration: none;
+        }
+
+        @include for-size(phone-only) {
+          display: none;
+        }
+
+      }
+
+    }
+
+    .userIcon {
+      position: relative;
+      margin-bottom: 1rem;
+
+      img {
+        cursor: pointer;
+      }
+
+      .mask {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .dropDown {
+        position: absolute;
+        right: -20px;
+        top: 3.5rem;
+        width: 20rem;
+        min-height: 100px;
+        border: 1px solid #f1f3f5;
+        background-color: $color-white;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+        >ul {
+          padding: 0;
+          display: block;
+          margin: 0;
+          list-style: none;
+
+          li>a {
+            cursor: pointer;
+            display: flex;
+            font-size: 14px;
+            align-items: center;
+            font-weight: 500;
+            line-height: 1.5rem;
+            padding: 1rem 1.5rem;
+            color: $color-black;
+          }
+
+          li:hover {
+            background-color: #f1f3f5;
+          }
+
+        }
+
+      }
+
+      @include for-size(phone-only) {
+        margin-bottom: 0;
+      }
+
+    }
+
+  }
+
+  .mobileNavLinks {
+    padding: 2rem;
+
+    ul {
+      padding-left: 0;
+
+      li {
+        margin-bottom: 2rem;
+
+        >a {
+          color: $color-black;
+        }
+      }
+    }
+  }
+
+  @include for-size(tablet-portrait-up) {
+    .container {
+      flex-direction: column;
+
+      .navLinks {
+        width: 100%;
+      }
+    }
+  }
+
+  @include for-size(tablet-landscape-up) {
+    padding: 2rem 4rem;
+
+    .container {
+      flex-direction: row;
+
+      .navLinks {
+        width: 100%
+      }
+    }
+
+  }
+
+  @include for-size(phone-only) {
+    padding: 0.5rem 1rem;
+    height: $phone-header-height;
+  }
+
+}

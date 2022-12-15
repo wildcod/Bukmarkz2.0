@@ -1,0 +1,220 @@
+@import "../../../../../../scss/mixins";
+@import "../../../../../../scss/variables";
+
+.cardCatWrapper{
+  box-shadow: 0 2px 4px rgba(0,0,0,.25);
+  background: #fff;
+  min-height: 100px;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  .body{
+    padding: 1.25rem;
+
+    .header{
+      display: flex;
+      padding: 5px 0 15px 0;
+      border-bottom: 1px solid rgba(0,0,0,.1);
+
+      > div{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #000;
+        font-size: 10px;
+        font-weight: 400;
+        text-align: center;
+        cursor: pointer;
+        line-height: 1.5;
+        border-radius: .25rem;
+        height: 20px;
+        width: 20px;
+        margin: 4px;
+
+        > svg{
+          cursor: pointer;
+        }
+
+        &.active{
+          color: $color-primary-green;
+        }
+
+      }
+
+      .title{
+        flex: 6;
+        justify-content: flex-start;
+        background-color: $color-primary-green;
+        border-radius: 8px;
+        height: 25px;
+        margin-top: 0;
+        border: none;
+        padding: 5px 5px;
+        > span{
+          color: $color-white;
+          font-size: 16px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
+
+    }
+
+    .list{
+      > span{
+        font-size: 14px;
+        letter-spacing: 0.4px;
+        padding: 10px;
+        display: inline-block;
+        color: #212529;
+        text-transform: capitalize;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+          display: flex;
+          margin: 10px 0;
+
+          > .left{
+            flex: 9;
+            p{
+              padding-bottom: 0;
+              font-size: 13px;
+            }
+            .bookmarkTitle{
+              display: flex;
+              align-items: center;
+              > img{
+                width: 16px;
+                height: 16px;
+                object-fit: contain;
+                margin-right: 5px;
+              }
+              span{
+                color: #212529;
+                padding-left: 5px;
+                font-size: 14px;
+                letter-spacing: .4px;
+                text-transform: capitalize;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                max-width: 120px;
+                &:hover{
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+
+          > .right{
+            flex: 4;
+            display: flex;
+            > div{
+              flex: 1;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border: 1px solid #000;
+              font-size: 10px;
+              font-weight: 400;
+              text-align: center;
+              cursor: pointer;
+              line-height: 1.5;
+              border-radius: .25rem;
+              height: 20px;
+              width: 20px;
+              margin: 0 4px;
+
+              svg{
+                cursor: pointer;
+
+                polygon{
+                  fill: $color-black;
+                }
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .addBtnContainer{
+    margin: 5px 10px;
+    button {
+      font-size: 16px;
+    }
+  }
+  @include for-size(phone-only){
+    &:last-child{
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.editCatContainer{
+   .modalHeader{
+     text-align: center;
+     color: $color-black;
+   }
+   .modalBody{
+      display: flex;
+      flex-direction: column;
+
+     .inputContainer{
+       margin-bottom: 2rem;
+       label {
+         font-size: 16px;
+         margin-bottom: 10px;
+         font-weight: 400;
+       }
+       input {
+         display: block;
+         width: 100%;
+         padding: 5px 10px;
+         font-size: 14px;
+         font-weight: 400;
+         line-height: 1.5;
+         color: #495057;
+         background-color: $color-white;
+         outline: none;
+         border: 1px solid #ced4da;
+         border-radius: .25rem;
+       }
+       input[type=color]{
+         padding: 5px;
+         width: 20%;
+         background-color: $color-light-grey-2;
+         height: 40px;
+       }
+     }
+
+    }
+    .btnContainer{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 4rem 0 1rem 0;
+      button{
+        width: 40%;
+      }
+    }
+}
+
+.icons{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+  justify-content: center;
+  > button {
+    margin-right: 15px;
+  }
+}

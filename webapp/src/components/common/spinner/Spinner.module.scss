@@ -1,0 +1,93 @@
+@import '../../../scss/mixins';
+@import '../../../scss/variables';
+
+.spinner {
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  animation: rotate 1s linear infinite;
+  background: url('../../../assets/spinner/spinner.svg') no-repeat;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  z-index: 3;
+
+  &.white {
+    background: url('../../../assets/spinner/spinner-white.svg') no-repeat;
+    background-size: contain;
+  }
+
+}
+
+.spinnerLoader {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 25000;
+  &:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.7;
+    z-index: 1;
+  }
+
+  > .spinner {
+    width: 100px;
+    height: 100px;
+    /*@include for-size(phone-only) {
+      width: 40px;
+      height: 40px;
+    }*/
+  }
+}
+
+.transparent {
+  &::before {
+    background-color: unset !important;
+  }
+}
+
+.spinner-loader.white {
+  &:before {
+    background-color: unset;
+  }
+}
+
+.spinnerLogoInner {
+  position: fixed;
+  > .spinner {
+    width: 100px;
+    height: 100px;
+    box-shadow: 1px 1px 12px 8px white;
+    background-color: white;
+    opacity: 0.9;
+  }
+  &:after {
+    content: '';
+    z-index: 4;
+    //background-image: url('/logo/logo-black.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 42px;
+    height: 42px;
+    position: absolute;
+  }
+  &:before {
+    opacity: 0;
+  }
+}

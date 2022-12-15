@@ -1,0 +1,231 @@
+{
+  "welcome": "Bienvenido a Bukmarkz",
+  "subtitle": {
+    "label1": "Administra tus marcadores como un BOSS"
+  },
+  "join_button": "Únase a Bukmarkz",
+  "video_section_title": "Acerca de BukMarkz",
+  "features_title": "Funciones de BukMarkz",
+  "features_subtitle": "¡BukMarkz! Un administrador de marcadores en línea gratuito que te ayuda a organizar y realizar un seguimiento de todos sus datos. Ya sea que se trate de tu libro favorito, un restaurante que desees visitar o un posible trabajo que le gustaría probar, puedes mantener registros de casi cualquier cosa en la nube. Bukmarkz te permite acceder a todo a través de cualquier dispositivo electrónico, como tu computadora, tableta o teléfono, sin la necesidad de sincronizar.",
+  "features_description": "Además, este servicio de marcadores también te ofrece sugerencias basadas en tus favoritos. Por lo tanto, siempre puedes obtener información sobre lugares, oportunidades o productos similares que pueden interesarte y que están disponibles en línea.",
+  "feature": {
+    "label1": "Un administrador de marcadores gratuito que se puede actualizar por una tarifa muy nominal.",
+    "label2": "Accede a tus marcadores desde cualquier dispositivo, como su PC, teléfono inteligente, tableta o desde cualquier dispositivo, en cualquier momento y en cualquier lugar a su conveniencia.",
+    "label3": "Los marcadores de uso común están disponibles de forma predeterminada.",
+    "label4": "Atención al cliente disponible, todo lo que tiene que hacer es preguntar y nuestro equipo técnico enumerará las mejores opciones disponibles para usted.",
+    "label5": "Un administrador de marcadores que admite varios navegadores web, Chrome, Mozilla Firefox, Internet Explorer, Opera y muchos más."
+  },
+  "stats": {
+    "1": "Clientes básicos",
+    "2": "Clientes premium",
+    "3": "Marcadores almacenados",
+    "4": "Países"
+  },
+  "services_title": "Servicios BukMarkz",
+  "services_subtitle": "En Bukmarkz aspiramos a que la gestión de la información sea sencilla y sin complicaciones, al tiempo que nos aseguramos de que nuestros usuarios tengan una estricta confidencialidad. Creemos en proporcionar un servicio de marcadores en línea duradero para empresas, equipos e individuos por igual. La mejor parte es que es gratis o por un precio mínimo. Además, este servicio de marcadores está disponible en 3 idiomas diferentes, inglés, francés y español para su conveniencia",
+  "service": {
+    "1": {
+      "title": "Importar marcadores",
+      "description": "Importa marcadores desde cualquier navegador o cualquier otra aplicación de marcadores."
+    },
+    "2": {
+      "title": "Categorizar marcadores",
+      "description": "Clasifica tus marcadores para facilitar la coordinación y el acceso."
+    },
+    "3": {
+      "title": "Extensión de Chrome",
+      "description": "Las extensiones le permiten guardar automáticamente la URL y el título elegidos desde cualquier navegador web y guardarlos en la categoría seleccionada disponible en su panel de control en la nube de este administrador de marcadores."
+    },
+    "4": {
+      "title": "Sistema de referencia",
+      "description": "Gana con nuestros programas de referencia, simplemente recomienda nuestro administrador de marcadores a tus amigos y por cada nuevo miembro de referencia obtendrás el 50% de la tarifa de compra premium. "
+    }
+  },
+  "sub_title": "Plan de precios",
+  "plan": {
+    "basic": {
+      "title": "Basic",
+      "feature": {
+        "1": "Gratis para agregar los marcadores que el usuario desee.",
+        "2": "Gratis para compartir los marcadores que prefiera el usuario.",
+        "3": "Se pueden almacenar hasta 5 marcadores en el tablero con una capacidad de almacenamiento limitada."
+      }
+    },
+    "premium": {
+      "title": "Premium",
+      "feature": {
+        "1": "Los usuarios obtienen una capacidad de almacenamiento ilimitada y pueden guardar tantos marcadores como quieran.",
+        "2": "Se te asigna un privilegio de privacidad especial en el que puedes proteger con contraseña ciertos marcadores para evitar el acceso no autorizado.",
+        "3": "Solicita ayuda a través del enlace \"Preguntar ahora\" para satisfacer sus necesidades de compra al instante a través de recomendaciones de expertos.",
+        "4": "Más temas de fondo para elegir.",
+        "5": "Gana a través de referencias, el 50% de la tarifa se asigna al usuario por cada nuevo suscriptor premium que ingrese."
+      }
+    }
+  },
+  "divider": {
+    "1": {
+      "title": "'' El secreto para salir adelante es comenzar. ''"
+    }
+  },
+  "aids_card_title": "Pedir ayuda",
+  "aids_card_description": "El enlace \"preguntar ahora\" es únicamente para tu conveniencia. Si necesitas algo o quieres encontrar algo, todo lo que tienes que hacer es escribir el enlace 'preguntar ahora' y nuestro equipo te proporcionará las mejores opciones posibles disponibles en la red al instante. A continuación, puede hacer tu elección y serás redirigido al sitio elegido. Por lo tanto, traemos compras y soluciones para sus consultas a través de recomendaciones de expertos a tu alcance a través del mejor administrador de marcadores",
+  "ask_button": "Pregunte ahora",
+  "aids_table_name": "Historial",
+  "col_searched": "Búsqueda",
+  "col_price": "Precio",
+  "col_country": "País",
+  "col_zip": "Código postal",
+
+  "archive_card_title": "Archivo",
+
+  "contact_section_title": "Contáctenos",
+  "contact_section_description": "Descripción",
+  "contact_label": {
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "submit": "enviar"
+  },
+
+  "nav": {
+    "register": "Registrarse",
+    "login": "Iniciar",
+    "dashboard": "Tablero",
+    "import": "Importar",
+    "sign_out": "Cerrar sesión"
+  },
+  "recommendation_card_title": "Recomendación",
+
+  "tab_nav": {
+    "main": "Principal",
+    "dashboard": "Mi panel",
+    "privacy": "Privacidad",
+    "offers": "Ofertas"
+  },
+
+  "checkout": {
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "zip": "Código postal",
+    "pay": "Pagar",
+    "pay_from_wallet": "Pagar desde la billetera",
+    "wrong": "¡Algo salió mal!",
+    "try_again": "¡Vuelve a intentarlo!"
+  },
+
+  "import_label": "Importa tus marcadores",
+  "export_label": "Exporta los marcadores de tu navegador como",
+  "file": "archivo",
+  "select_label": "Selecciona el archivo",
+  "select_error": "Ningún archivo seleccionado",
+  "cat_name_error": "Minimum characters should be 5",
+  "drop_label": "Suelta los archivos aquí ...",
+  "drop_file_placeholder": "Arrastra y suelta el archivo <b> .html </b> aquí, o haga clic para seleccionar el archivo",
+
+  "invite": {
+    "sent": "Invitación enviada",
+    "error": "¡Algo salió mal!",
+    "invite_label": "Invite a sus contactos de correo electrónico",
+    "connected_label": "Su correo electrónico conectado",
+    "contact_label": "Sus contactos de Gmail",
+    "invite": "Invitar",
+    "disconnect": "Desconectar",
+    "connect": "Conectar",
+    "to_dashboard": "Al panel de control"
+  },
+
+  "login": {
+    "login_btn": "Iniciar sesión ahora",
+    "username": "Nombre de usuario",
+    "password": "Contraseña",
+    "check_me_out": "Verificarme",
+    "login": "Iniciar sesión",
+    "reset": "Restablecer"
+  },
+  "register": {
+    "header": "Regístrese a continuación",
+    "email_label": "Dirección de correo electrónico",
+    "info": "Nunca compartiremos su correo electrónico con nadie más.",
+    "country": "País",
+    "confirm_label": "Confirmar contraseña"
+  },
+  "password": {
+    "confirm": {
+      "header": "La contraseña se ha configurado correctamente",
+      "to_account": "en su cuenta",
+      "enter_label": "Introduzca la nueva contraseña",
+      "new_label": "Nueva contraseña",
+      "confirm_label": "Confirme la nueva contraseña",
+      "done": "Hecho"
+    },
+    "reset": {
+      "header": "El correo electrónico ha sido enviado a su bandeja de entrada",
+      "subtitle": "Confirme para restablecer su contraseña",
+      "reset_header": "Restablecer contraseña",
+      "email_label": "Correo electrónico",
+      "submit": "Enviar"
+    }
+  },
+
+  "profile": {
+    "header": "Perfil",
+    "nav": {
+      "details": "Detalles",
+      "referrals": "Mis referencias",
+      "stats": "Estadísticas del panel"
+    },
+    "subscription_label": "Suscripción",
+    "days_remaining": "quedan días",
+    "choose_label": "Elegir fondo del panel",
+    "referral": {
+      "link": "Su enlace de invitación:",
+      "copy_label": "(Haga clic en el enlace para copiar)",
+      "share_label": "Compartir en sus redes sociales",
+      "gmail_contacts": "Contactos de Gmail",
+      "stats_label": "Estadísticas de referencia",
+      "friends_registered": "Amigos registrados",
+      "friends_subbed": "Amigos subtitulados",
+      "wallet": "Monedero",
+      "withdraw": "Retirar",
+      "guide_header": "Guía",
+      "guide_text": "Nuestro programa de recomendación es para los suscriptores premium. Puedes ganar el 50% de la tarifa de suscripción por cada nuevo suscriptor que llegue a través de tu recomendación. Es obligatorio un mínimo de dos referencias para retirar tus ganancias."
+    },
+    "stats": {
+      "error": "No hay marcadores almacenados",
+      "start_label": "¡Empezar ahora!",
+      "category": "Categoría",
+      "bookmarks": "Marcadores",
+      "rate": "Porcentaje"
+    }
+  },
+  "withdraw": {
+    "valid": "Válido hasta",
+    "amount": "monto",
+    "success": "Transacción recibida, espere hasta que la procesemos"
+  },
+
+  "footer": {
+    "home": "Inicio",
+    "team": "Equipo",
+    "contact": "Contacto",
+    "about": "Acerca de",
+    "statistics": "Estadísticas",
+    "privacy": "Privacidad",
+    "terms": "Términos y condiciones",
+    "news": "Noticias",
+    "community": "Comunidad"
+  },
+
+  "models": {
+    "close": "Cerrar",
+    "save": "Guardar",
+    "create_category": {
+      "header": "Añadir categoría",
+      "label": {
+        "title": "Título"
+      }
+    }
+  }
+
+}

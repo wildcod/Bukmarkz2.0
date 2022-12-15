@@ -1,0 +1,9 @@
+@import "../../../scss/mixins.scss";
+@import "../../../scss/variables.scss";
+
+.layoutWrapper{
+  margin-top: $desktop-header-height;
+  @include for-size(phone-only){
+    margin-top: $phone-header-height;
+  }
+}

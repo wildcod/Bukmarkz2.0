@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  react_dev:
+    container_name: bukmarkz_frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    stdin_open: true
+    volumes:
+      - '.:/usr/src/bukmarkz_frontend'
+      - '/usr/src/bukmarkz_frontend/node_modules'
+    ports:
+      - 3000:3000

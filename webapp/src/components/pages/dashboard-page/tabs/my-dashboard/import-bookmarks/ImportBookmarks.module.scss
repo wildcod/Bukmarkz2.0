@@ -1,0 +1,46 @@
+@import "../../../../../../scss/mixins";
+@import "../../../../../../scss/variables";
+
+.importBookmarks{
+  display: flex;
+  flex-direction: column;
+
+  > h3{
+    text-align: center;
+    color: $color-black;
+  }
+
+  .body{
+    padding: 5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+
+    span{
+      color: $color-black;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+
+    .note{
+      color: red;
+    }
+
+    .title{
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    input {
+      color: $color-black;
+      font-size: 14px;
+      margin-bottom: 45px;
+      border: none;
+      outline: none;
+    }
+    input[type=text]{
+      border-bottom: 2px solid grey;
+    }
+
+  }
+
+}

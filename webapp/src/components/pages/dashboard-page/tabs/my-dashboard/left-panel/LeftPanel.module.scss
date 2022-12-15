@@ -1,0 +1,135 @@
+@import "../../../../../../scss/mixins";
+@import "../../../../../../scss/variables";
+
+.cardContainer{
+  box-shadow: 0 2px 4px rgba(0,0,0,.25);
+  background-color: #fff;
+  padding: 12px 12px 20px;
+  margin-bottom: 40px;
+
+  h4{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    background-color: $color-primary-green;
+    padding: 4px;
+    border-radius: 4px;
+    color: $color-white;
+    font-weight: 500;
+    margin-bottom: 1em;
+    > img{
+      margin-left: 5px;
+    }
+  }
+
+  .body{
+    display: flex;
+    flex-direction: column;
+    background-color: $color-white;
+    background-clip: border-box;
+    border-radius: .25rem;
+    min-height: 0;
+    padding: 0;
+    transition: min-height 0.6s, padding 0.6s;
+
+
+    &.animation{
+      border: 1px solid rgba(0,0,0,.125);
+      padding: 1.25rem;
+      min-height: 50px;
+    }
+
+  }
+
+  .hasSub{
+    //padding: 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p{
+      display: -webkit-box;
+      text-align: center;
+      -webkit-line-clamp: 3;
+      font-size: 14px;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      font-weight: 400;
+      line-height: 1.4285em;
+      padding-bottom: 0;
+      margin-bottom: 2px;
+      &.expand{
+        display: inline;
+      }
+    }
+
+    > a {
+      width: 100%;
+      font-size: 12px;
+      color: $color-light-grey !important;
+      cursor: pointer;
+      text-decoration: underline !important;
+      text-align: center;
+    }
+
+    .askBtn > button{
+      margin-top: 10px;
+      padding: .375rem .95rem;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      border-radius: .25rem;
+    }
+
+    .historyContainer{
+      width: 100%;
+      margin-top: 2.5rem;
+      h4{
+        text-align: center;
+        cursor: pointer;
+        font-size: 18px;
+        background-color: $color-primary-green;
+        padding: 4px;
+        border-radius: 4px;
+        color: $color-white;
+        font-weight: 500;
+        margin-bottom: 1em;
+      }
+    }
+
+  }
+
+  @include for-size(phone-only){
+    &:last-child {
+      margin-bottom: 10px;
+    }
+  }
+
+}
+
+.askModal{
+  .modalHeader{
+    text-align: center;
+    color: $color-black;
+  }
+}
+
+.recommendations {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: .25rem;
+  padding: 1.25rem;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+}

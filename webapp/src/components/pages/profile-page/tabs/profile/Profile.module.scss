@@ -1,0 +1,90 @@
+@import "../../../../../scss/mixins";
+@import "../../../../../scss/variables";
+
+.container{
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+
+  .form{
+    display: flex;
+    flex-direction: column;
+
+    .input{
+      color: $color-primary-green;
+      font-size: 25px;
+      margin-bottom: 25px;
+      span{
+        display: block;
+        color: $color-primary-green;
+        margin-bottom: 10px;
+      }
+      > div{
+        display: flex;
+        border: 1px solid #A7D129;
+        .icon {
+          flex: 1;
+          padding: 1.5rem;
+          background-color: #B6EB7A;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-width: 65px;
+          max-width: 65px;
+        }
+        .text{
+          padding: 1.5rem;
+          flex: 9;
+        }
+      }
+    }
+  }
+  .images{
+    p{
+      font-size: 1.6rem;
+      color: $color-black
+    }
+
+    .grid{
+      display: flex;
+      flex-wrap: wrap;
+      img {
+        padding: 4px;
+        cursor: pointer;
+        margin: 12px;
+        object-fit: cover;
+        height: 100px;
+        &:hover{
+          border: 1px solid #000;
+        }
+      }
+    }
+  }
+
+  @include for-size(phone-only){
+    padding: 30px 15px;
+
+    .form {
+      .input{
+        font-size: 16px;
+         margin-bottom: 18px;
+        > div{
+          .icon, .text{
+            padding: 1rem;
+          }
+        }
+
+
+      }
+    }
+
+  }
+
+  .images{
+    p {
+      padding: 5px;
+      text-align: center;
+    }
+  }
+
+}

@@ -1,0 +1,74 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+
+.wrapper{
+  padding: 1rem;
+
+  .container{
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,.125);
+
+    .header{
+      padding: 12px 20px;
+      background-color: rgba(0,0,0,.03);
+      h3{
+        text-align: center;
+        margin: 0;
+        color: $color-black;
+        font-size: 30px;
+        font-weight: 500;
+      }
+    }
+
+    .body{
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      margin-top: 20px;
+      .sidebar{
+        flex: 2;
+        min-width: 224px;
+        background: rgba(0,0,0,.02);
+        padding: 0 10px;
+
+        ul{
+          list-style: none;
+          padding: 0;
+
+          li{
+            padding: 1rem;
+            font-size: 20px;
+            cursor: pointer;
+            color: $color-black;
+
+            &.active{
+              background-color: $color-primary-green;
+              color: $color-white;
+            }
+
+            @include for-size(phone-only){
+              font-size: 16px;
+            }
+
+          }
+
+        }
+
+      }
+
+      .main{
+        flex: 6
+      }
+      @include for-size(tablet-landscape-up){
+        flex-direction: row;
+      }
+    }
+
+    @include for-size(phone-only){
+      width: 100%;
+    }
+
+  }
+}

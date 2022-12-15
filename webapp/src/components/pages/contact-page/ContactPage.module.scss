@@ -1,0 +1,69 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+
+.contactPage{
+   .container{
+     padding: 6%;
+
+     .getInTouch{
+       margin: 0 auto;
+       width: 60%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       h2{
+         font-size: 46px;
+         line-height: 41px;
+         font-weight: 300;
+         margin-bottom: 25px;
+         color: $color-dark-grey;
+       }
+
+       p{
+         line-height: 23px;
+         font-size: 14px;
+         text-align: center;
+         color: $color-light-grey;
+       }
+
+       .address{
+         > h4{
+           font-weight: 600;
+           border-bottom: 2px solid $color-dark-grey;
+           color: $color-dark-grey;
+           padding-bottom: 15px;
+           margin-bottom: 30px;
+         }
+
+         .item {
+           display: flex;
+           align-items: flex-start;
+           margin-bottom: 15px;
+           img {
+             margin-right: 10px;
+             margin-top: 4px;
+           }
+           span{
+             color: #bbb;
+             font-size: 14px;
+           }
+         }
+
+       }
+
+       @include for-size(phone-only){
+         width: 100%;
+
+         h2{
+           font-size: 32px;
+           line-height: 36px;
+           margin-bottom: 10px;
+         }
+
+       }
+
+     }
+
+   }
+}

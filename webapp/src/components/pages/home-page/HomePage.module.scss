@@ -1,0 +1,119 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+
+// banner AR => banner height
+$desktop-banner-height: calc(100vw / #{$home-banner-aspect-ratio-desktop});
+$mobile-banner-height: calc(100vw / #{$home-banner-aspect-ratio-mobile});
+
+.homePage{
+  .carouselWrapper{
+    width: 100%;
+    background-color: gray;
+    position: relative;
+    @include for-size(tablet-portrait-up) {
+      margin-top: 0;
+      height: calc(#{$desktop-banner-height} + #{$desktop-static-home-height - 6});
+    }
+    @include for-size(phone-only) {
+      z-index: 0;
+      margin-top: 0;
+      height: calc(#{$mobile-banner-height} + #{$phone-header-height});
+    }
+
+    .card{
+      display: none;
+      background-color: rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 50.7vw;
+      padding: 5%;
+      position: absolute;
+      right: 20px;
+      h1{
+        color: white;
+        font-size: 1.5rem;
+        text-align: center;
+        line-height: 5.06vw;
+      }
+      p{
+        margin-top: 1rem;
+        color: white;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 14px;
+        margin-bottom: 0;
+      }
+      &.leftCard{
+        left: 0;
+      }
+      @include for-size(phone-only){
+        display: block;
+        bottom: -32px;
+        background-color: $color-primary-green;
+        z-index: 1001;
+        left: 14.5%;
+        margin: 0;
+        max-width: 73%;
+      }
+    }
+
+  }
+  
+  .registerWrapper{
+    // padding: 3% 10%;
+    h2{
+      text-align: center;
+      color: $color-dark-grey;
+      font-weight: 400;
+    }
+
+    p{
+      text-align: center;
+
+      > span{
+        color: $color-black;
+        font-weight: 600;
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+
+    }
+  }
+}
+
+.formContainer{
+  display: flex;
+  flex-direction: column;
+
+  p{
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .formInput{
+    width: 100%;
+    margin-top: 20px;
+    input, select {
+      width: 100%;
+      padding: 15px 12px;
+      border: 1px solid $color-light-grey-2;
+      font-size: 14px;
+      line-height: 20px;
+      border-radius: 4px;
+      outline: none;
+    }
+  }
+
+  .btnContainer{
+    width: 100%;
+    margin-top: 35px;
+  }
+
+  .error{
+    color: red;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+}

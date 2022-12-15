@@ -1,0 +1,231 @@
+{
+  "welcome": "Bienvenue à Bukmarkz",
+  "subtitle": {
+    "label1": "Gérez vos favoris comme un BOSS"
+  },
+  "join_button": "Joindre Bukmarkz",
+  "video_section_title": "Sur BukMarkz",
+  "features_title": "BukMarkz traits",
+  "features_subtitle": "BukMarkz! Un gestionnaire de signets en ligne gratuit qui vous aide à organiser et à garder une trace de toutes vos données. Qu'il s'agisse de votre livre préféré, d'un restaurant que vous souhaitez visiter ou d'un emploi potentiel que vous aimeriez essayer, vous pouvez conserver des enregistrements de presque tout dans le cloud. Bukmarkz vous permet d'accéder à tout via n'importe quel appareil électronique, tel que votre ordinateur, tablette ou téléphone, sans avoir besoin de synchroniser.",
+  "features_description": "De plus, ce service de bookmarking vous propose également des suggestions basées sur vos favoris. Par conséquent, vous pouvez toujours obtenir des informations sur les lieux, les opportunités ou les produits similaires susceptibles de vous intéresser et disponibles en ligne.",
+  "feature": {
+    "label1": "Un gestionnaire de signets gratuit qui peut être mis à niveau pour un prix très modique.",
+    "label2": "Accédez à vos signets depuis n'importe quel appareil, tel que votre PC, smartphone, tablette ou depuis n'importe quel appareil, à tout moment, n'importe où à votre convenance.",
+    "label3": "Support client disponible, il vous suffit de demander et notre équipe technique vous listera les meilleures options qui s'offrent à vous.",
+    "label4": "Un gestionnaire de signets qui prend en charge divers navigateurs Web, Chrome, Mozilla Firefox, Internet Explorer, Opera et bien d'autres.",
+    "label5": "Les signets couramment utilisés sont disponibles par défaut."
+  },
+  "stats": {
+    "1": "Clients De base",
+    "2": "Clients Premium",
+    "3": "Favoris stockés",
+    "4": "Des pays"
+  },
+  "services_title": "BukMarkz Prestations de service",
+  "services_subtitle": "Chez Bukmarkz, nous aspirons à simplifier et simplifier la gestion des informations, tout en garantissant à nos utilisateurs une confidentialité stricte. Nous croyons en la fourniture d'un service de création de signets en ligne durable pour les entreprises, les équipes et les particuliers. La meilleure partie est qu'il est gratuit ou pour un prix minime. De plus, ce service de bookmarking est disponible en 3 langues différentes, anglais, français et espagnol pour votre commodité.",
+  "service": {
+    "1": {
+      "title": "Importer des signets",
+      "description": "Importez des signets à partir de n'importe quel navigateur ou de toute autre application de signets."
+    },
+    "2": {
+      "title": "Catégoriser les signets",
+      "description": "Classez vos signets pour une coordination et un accès faciles."
+    },
+    "3": {
+      "title": "Extension Chrome",
+      "description": "Les extensions vous permettent d'enregistrer automatiquement l'URL et le titre de votre choix à partir de n'importe quel navigateur Web et de les enregistrer dans la catégorie sélectionnée disponible dans votre panneau de configuration cloud de ce gestionnaire de favoris."
+    },
+    "4": {
+      "title": "Système de référence",
+      "description": "Gagnez avec nos programmes de parrainage, recommandez simplement notre gestionnaire de favoris à vos amis et pour chaque nouveau membre de parrainage, vous obtiendrez 50% des frais d'achat premium."
+    }
+  },
+  "sub_title": "Plan Tarifaire",
+  "plan": {
+    "basic": {
+      "title": "De base",
+      "feature": {
+        "1": "Libre d'ajouter les signets que l'utilisateur souhaite.",
+        "2": "Libre de partager les signets que l'utilisateur préfère.",
+        "3": "Jusqu'à 5 marqueurs peuvent être stockés sur la carte avec une capacité de stockage limitée."
+      }
+    },
+    "premium": {
+      "title": "Prime",
+      "feature": {
+        "1": "Les utilisateurs bénéficient d'une capacité de stockage illimitée et peuvent enregistrer autant de signets qu'ils le souhaitent.",
+        "2": "Un privilège spécial de confidentialité vous est attribué dans lequel vous pouvez protéger par mot de passe certains signets pour empêcher tout accès non autorisé.",
+        "3": "Demandez de l'aide via le lien \"Demander maintenant\" pour répondre instantanément à vos besoins d'achat grâce à des recommandations d'experts.",
+        "4": "Gagnez grâce aux parrainages, 50% du tarif est attribué à l'utilisateur pour chaque nouvel abonné premium qui entre.",
+        "5": "Plus de thèmes d'arrière-plan à choisir."
+      }
+    }
+  },
+  "divider": {
+    "1": {
+      "title": "\"Le secret pour avancer est de commencer.\""
+    }
+  },
+  "aids_card_title": "Demander de l'aide",
+  "aids_card_description": "Le lien «demander maintenant» est uniquement pour votre commodité. Si vous avez besoin de quelque chose ou souhaitez trouver quelque chose, il vous suffit de taper le lien «demander maintenant» et notre équipe vous fournira instantanément les meilleures options disponibles sur le Web. Vous pouvez alors faire votre choix et vous serez redirigé vers le site choisi. Par conséquent, nous apportons des achats et des solutions pour vos requêtes grâce à des recommandations d'experts à portée de main grâce au meilleur gestionnaire de signets",
+  "ask_button": "Demande Maintenant!",
+  "aids_table_name": "Histoire",
+  "col_searched": "Cherché",
+  "col_price": "Prix",
+  "col_country": "Pays",
+  "col_zip": "Zip",
+
+  "archive_card_title": "Archiver",
+
+  "contact_section_title": "Nous contacter",
+  "contact_section_description": "La description",
+  "contact_label": {
+    "name": "Nom",
+    "email": "Email",
+    "subject": "Matière",
+    "message": "Message",
+    "submit": "soumettre"
+  },
+
+  "nav": {
+    "register": "S'inscrire",
+    "login": "S'identifier",
+    "dashboard": "Tableau de bord",
+    "import": "Importer",
+    "sign_out": "Déconnexion"
+  },
+  "recommendation_card_title": "Recommandation",
+
+  "tab_nav": {
+    "main": "Principal",
+    "dashboard": "Mon tableau de bord",
+    "privacy": "Intimité",
+    "offers": "Des offres"
+  },
+
+  "checkout": {
+    "name": "Nom",
+    "email": "Email",
+    "zip": "Zip",
+    "pay": "Payer",
+    "pay_from_wallet": "Payer depuis le portefeuille",
+    "wrong": "Un problème est survenu!",
+    "try_again": "Réessayer!"
+  },
+
+
+  "import_label": "Importez vos marque-pages",
+  "export_label": "Exportez les marque-pages de votre navigateur sous forme de",
+  "file": "fichier",
+  "select_label": "Sélectionnez le fichier",
+  "select_error": "Aucun fichier sélectionné",
+  "cat_name_error": "Minimum characters should be 5",
+  "drop_label": "Déposez les fichiers ici ...",
+  "drop_file_placeholder": "Faites glisser le fichier <b> .html </b> ici, ou cliquez pour sélectionner le fichier",
+
+  "invite": {
+    "sent": "Invitation envoyée!",
+    "error": "Une erreur s'est produite!",
+    "invite_label": "Invitez vos contacts par e-mail",
+    "connected_label": "Votre e-mail connecté",
+    "contact_label": "Vos contacts Gmail",
+    "invite": "Inviter",
+    "disconnect": "Déconnecter",
+    "connect": "Se connecter",
+    "to_dashboard": "Au tableau de bord"
+  },
+
+  "login": {
+    "login_btn": "Connectez-vous maintenant",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "check_me_out": "Vérifiez-moi",
+    "login": "Connexion",
+    "reset": "Réinitialiser"
+  },
+  "register": {
+    "header": "Inscrivez-vous ci-dessous",
+    "email_label": "Adresse e-mail",
+    "info": "Nous ne partagerons jamais votre e-mail avec qui que ce soit.",
+    "country": "Pays",
+    "confirm_label": "Confirmer le mot de passe"
+  },
+  "password": {
+    "confirm": {
+      "header": "Le mot de passe a été défini avec succès",
+      "to_account": "à votre compte",
+      "enter_label": "Entrez le nouveau mot de passe",
+      "new_label": "Nouveau mot de passe",
+      "confirm_label": "Confirmer le nouveau mot de passe",
+      "done": "Terminé"
+    },
+    "reset": {
+      "header": "Un e-mail a été envoyé dans votre boîte de réception",
+      "subtitle": "Confirmez pour réinitialiser votre mot de passe",
+      "reset_header": "Réinitialiser le mot de passe",
+      "email_label": " Email",
+      "submit": "à votre compte0"
+    }
+  },
+
+  "profile": {
+    "header": "Profil",
+    "nav": {
+      "details": "Détails",
+      "referrals": "Mes parrainages",
+      "stats": "Statistiques du tableau de bord"
+    },
+    "subscription_label": "Abonnement",
+    "days_remaining": "jours restants",
+    "choose_label": "Choisir l'arrière-plan du tableau de bord",
+    "referral": {
+      "link": "Votre lien d'invitation:",
+      "copy_label": "(Cliquez sur le lien pour copier)",
+      "share_label": "Partager sur vos réseaux sociaux",
+      "gmail_contacts": "Contacts Gmail",
+      "stats_label": "Vos statistiques de parrainage",
+      "friends_registered": "Amis enregistrés",
+      "friends_subbed": "Amis sous-titrés",
+      "wallet": "Portefeuille",
+      "withdraw": "Retirer",
+      "guide_header": "Guide",
+      "guide_text": "Notre programme de parrainage est destiné aux abonnés premium. Vous pouvez gagner 50% des frais d'abonnement pour chaque nouvel abonné issu de votre recommandation. Un minimum de deux filleuls est nécessaire pour retirer vos gains."
+    },
+    "stats": {
+      "error": "Aucun favori enregistré",
+      "start_label": "Commencer maintenant!",
+      "category": "Catégorie",
+      "bookmarks": "Favoris",
+      "rate": "Pourcentage"
+    }
+  },
+  "withdraw": {
+    "valid": "Valide jusqu'à",
+    "amount": "montant",
+    "success": "Transaction reçue, attendez que nous la traitons!"
+  },
+
+  "footer": {
+    "home": "Accueil",
+    "team": "Équipe",
+    "contact": "Contact",
+    "about": "À propos",
+    "statistics": "Statistiques",
+    "privacy": "Confidentialité",
+    "terms": "Conditions générales",
+    "news": "Actualités",
+    "community": "Communauté"
+  },
+
+  "models": {
+    "close": "Fermer",
+    "save": "Enregistrer",
+    "create_category": {
+      "header": "Ajouter une catégorie",
+      "label": {
+        "title": "Titre"
+      }
+    }
+  }
+}

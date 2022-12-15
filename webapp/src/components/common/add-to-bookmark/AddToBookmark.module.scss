@@ -1,0 +1,28 @@
+@import "../../../scss/variables";
+
+.addToCategoryContainer{
+  padding: 1rem;
+
+  h4{
+    color: $color-black;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .input{
+    margin: 10px 0;
+
+    select {
+      width: 100%;
+      padding: 1rem;
+      outline: none;
+      border: 1px solid $color-black;
+    }
+
+  }
+
+  .btnContainer{
+    margin-top: 20px;
+  }
+
+}

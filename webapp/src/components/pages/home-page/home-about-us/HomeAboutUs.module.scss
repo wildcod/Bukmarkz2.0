@@ -1,0 +1,101 @@
+@import "../../../../scss/mixins";
+@import "../../../../scss/variables";
+
+.homeAboutUs{
+  min-height: 586px;
+  background-color: $color-light-grey-1;
+  background-image: url("/assets/img/pexels-cottonbro.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  .innerContainer {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding-right: 15%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: auto;
+    min-width: 320px;
+    max-width: 1200px;
+
+    .card {
+      width: 50%;
+      padding: 6%;
+      max-width: 533px;
+      background-color: $color-dark-grey;
+      min-height: 586px;
+
+      h2 {
+        font-size: 46px;
+        line-height: 41px;
+        font-weight: 300;
+        color: $color-white;
+      }
+
+      .description {
+        h5 {
+          font-size: 18px;
+          line-height: 24px;
+          font-weight: 300;
+          color: $color-medium-grey-1;
+          margin: 20px 0;
+        }
+        p{
+          font-size: 14px;
+          line-height: 23px;
+        }
+      }
+
+      .readMore {
+        width: 140px;
+
+        > button {
+          font-size: 13px;
+          border-radius: 30px;
+        }
+
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+     .homeAboutUs {
+       padding: 0;
+       width: 100%;
+
+       .innerContainer {
+         padding: 0;
+         .card {
+           padding: 4rem 2rem;
+           width: 100%;
+           background-color: $color-dark-grey;
+           max-width: unset;
+
+           h2 {
+             font-size: 40px;
+             text-align: center;
+           }
+
+           .description {
+             h5, p {
+               font-size: 18px;
+               text-align: center;
+             }
+
+             p {
+               font-size: 14px;
+               line-height: 23px;
+             }
+           }
+
+           .readMore {
+             margin: 0 auto;
+           }
+
+         }
+       }
+     }
+}

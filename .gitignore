@@ -1,0 +1,15 @@
+.idea
+.venv
+.env
+venv
+env
+.vscode
+.env.dev
+.env.prod
+.env.prod.db
+.DS_Store
+
+#frontend
+/webapp/node_modules
+/webapp/.env.development
+/webapp/.env.production
