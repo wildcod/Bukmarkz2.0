@@ -20,6 +20,24 @@ import { subscriptionAPI } from "../../api/subscription";
 import { createError } from "./error";
 import createMessage from "./message";
 import {errorParser} from "../../utils";
+import { useHistory } from "react-router-dom";
+
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== "") {
+        const cookies = document.cookie.split(";");
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === name + "=") {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+const csrftoken = getCookie("csrftoken");
 
 const cookies = new Cookies()
 const setAuthTokenToCookies = async (token, expiry) => {
@@ -41,6 +59,7 @@ const initialState = {
     queryParams: '',
     backgroundPreferredImageUrl: localStorage.getItem("backgroundImage")
 }
+
 
 export default function (state = initialState, action) {
     switch (action.type) {
@@ -140,22 +159,52 @@ export const loadUser = () => async (dispatch) => {
 }
 
 // LOGIN USER
+// export const loginUser = (body) => async (dispatch) => {
+//     try {
+//         dispatch(actions.setLoading(true))
+//         console.log(body);
+//         let data = await authAPI.login(body)
+//         await setAuthTokenToCookies(body.token)
+//         dispatch(actions.setUser(data.user))
+//         dispatch(actions.setLoginSuccess(data))
+//         stopLoading(dispatch)
+//         return { ok: true }
+//     } catch (e) {
+//         dispatch({type: LOGIN_FAIL})
+//         dispatch(createError(e))
+//         stopLoading(dispatch)
+//         return { ok: false }
+//     }
+// }
+
 export const loginUser = (body) => async (dispatch) => {
+    var username = body.username;
+    var password = body.password
+    const response = await fetch("http://127.0.0.1:8000/api/auth/login/", {
+        method: "POST",
+        headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
+        body: JSON.stringify({
+            username,
+            password
+        })
+    });
+    const data = await response.json();
+
     try {
         dispatch(actions.setLoading(true))
-        let data = await authAPI.login(body)
-        await setAuthTokenToCookies(data.token)
+        console.log(data.access);
+        // let data = await authAPI.login(body)
+        await setAuthTokenToCookies(data.access)
         dispatch(actions.setUser(data.user))
         dispatch(actions.setLoginSuccess(data))
         stopLoading(dispatch)
+
+        localStorage.setItem("authTokens", JSON.stringify(data));
         return { ok: true }
-    } catch (e) {
-        dispatch({type: LOGIN_FAIL})
-        dispatch(createError(e))
-        stopLoading(dispatch)
+    } catch(e) {
         return { ok: false }
     }
-}
+};
 
 // REGISTER USER
 export const registerUser = (body) => async (dispatch) => {

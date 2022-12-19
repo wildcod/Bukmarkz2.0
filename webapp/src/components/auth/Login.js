@@ -103,9 +103,14 @@ const Login = ({
       loginUser({
         username,
         password,
-        csrftoken
-      })
-      history.push('/dashboard');
+      }).then((res) => {
+        if (res.ok) {
+          if (!isFromExtension) {
+            onClose();
+            history.push("/dashboard");
+          }
+        }
+      });
     }).catch((error) => {
         if (error.response) {
           // setPassErr(error.response.data.err[0].split(" - ")[1]);

@@ -23,6 +23,7 @@ closeModal
             .then((res) => {
                 res.ok && closeModal()
             })
+
     }
 
     return (

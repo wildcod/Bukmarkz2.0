@@ -1,4 +1,5 @@
-import instance from './index'
+import instance from './index';
+
 
 export const authAPI = {
     me() {

@@ -35,7 +35,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 category: state.category.filter(
-                    (bookmark) => bookmark.id !== action.payload
+                    (bookmark) => bookmark !== action.payload
                 )
             }
 
@@ -70,6 +70,22 @@ const actions = {
     importBookmarks: (data) => ({type: UPLOAD_CATEGORY, payload: data})
 }
 
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== "") {
+        const cookies = document.cookie.split(";");
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === name + "=") {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+const csrftoken = getCookie("csrftoken");
+
 export const getCategories = () => async (dispatch) => {
     try {
         let data = await dashboardAPI.getCategories()
@@ -80,41 +96,106 @@ export const getCategories = () => async (dispatch) => {
 }
 
 export const deleteCategory = (id) => async (dispatch) => {
+    const response = await fetch(`http://127.0.0.1:8000/api/category/${id}/`, {
+        method: "GET",
+        headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
+    });
+    const data = await response.json();
+    console.log(data.id);
+
     try {
-        await dashboardAPI.deleteCategory(id)
+        // await dashboardAPI.deleteCategory(data)
         dispatch(createMessage({categoryDeleted: 'category Deleted'}))
-        dispatch(actions.deleteCategory(id))
+        dispatch(actions.deleteCategory(data))
         return { ok: true }
-    } catch (e) {
+    } catch(e) {
         dispatch(createError(e))
         return { ok: false }
     }
+};
 
-}
+// export const deleteCategory = (id) => async (dispatch) => {
+//     try {
+//         await dashboardAPI.deleteCategory(id)
+//         dispatch(createMessage({categoryDeleted: 'category Deleted'}))
+//         dispatch(actions.deleteCategory(id))
+//         return { ok: true }
+//     } catch (e) {
+//         dispatch(createError(e))
+//         return { ok: false }
+//     }
+
+// }
 
 export const addCategory = (body) => async (dispatch) => {
+    var title = body.title;
+    var user = body.user;
+    var color = body.color;
+    var priv = body.private;
+
+    const response = await fetch("http://127.0.0.1:8000/api/category/", {
+        method: "POST",
+        headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
+        body: JSON.stringify({
+            title,
+            user,
+            color,
+            priv,
+        })
+    });
+    const data = await response.json();
+
     try {
-        let data = await dashboardAPI.saveCategory(body)
+        // let data = await dashboardAPI.saveCategory(body)
         dispatch(createMessage({categoryAdded: 'Category Added'}))
         dispatch(actions.addCategory(data))
         return { ok: true }
-    } catch (e) {
+    } catch(e) {
         dispatch(createError(e))
         return { ok: false }
     }
-}
+};
 
 export const updateCategory = (body, id) => async (dispatch) => {
+    var title = body.title;
+    var user = body.user;
+    var color = body.color;
+    var priv = body.private;
+
+    const response = await fetch(`http://127.0.0.1:8000/api/category/${id}/`, {
+        method: "POST",
+        headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
+        body: JSON.stringify({
+            title,
+            user,
+            color,
+            priv,
+        })
+    });
+    const data = await response.json();
+
     try {
-        let data = await dashboardAPI.updateCategory(body, id)
+        // let data = await dashboardAPI.updateCategory(data, id)
         dispatch(createMessage({categoryUpdated: 'Category Updated'}))
-        dispatch(actions.updateCategory(data))
+        dispatch(actions.updateCategory(data, id))
         return { ok: true }
-    } catch (e) {
+    } catch(e) {
         dispatch(createError(e))
         return { ok: false }
     }
-}
+};
+
+// export const updateCategory = (body, id) => async (dispatch) => {
+//     try {
+//         let data = await dashboardAPI.updateCategory(body, id)
+//         dispatch(createMessage({categoryUpdated: 'Category Updated'}))
+//         dispatch(actions.updateCategory(data))
+//         return { ok: true }
+//     } catch (e) {
+//         dispatch(createError(e))
+//         return { ok: false }
+//     }
+// }
 
 export const importBookmark = (body) => async (dispatch) => {
     try {

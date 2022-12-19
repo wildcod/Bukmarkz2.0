@@ -66,7 +66,6 @@ class BookmarkViewSet(viewsets.ModelViewSet):
 class CategoryViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated,]
     serializer_class = CategorySerializer
-    authentication_classes = (TokenAuthentication,)
 
     def get_queryset(self):
         print(self.request.user)

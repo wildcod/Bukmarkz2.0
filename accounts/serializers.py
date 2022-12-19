@@ -1,7 +1,7 @@
 from django.core.exceptions import ObjectDoesNotExist
 from requests import request
 from rest_framework import serializers
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 from django.contrib.auth import get_user_model
 from django_countries.serializers import CountryFieldMixin
 from django.conf import settings
@@ -45,7 +45,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         
         user= CustomUser.objects.create(email=validated_data['email'], username=validated_data['username'],password=validated_data['password'],country=validated_data['country'],**extra_fields)
         
-
+        token = RefreshToken.for_user(user)
         # create free trial subscription for new user
         try:
             subscribe_user_as_free_trial(user)
@@ -66,93 +66,122 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 
 # # login Serializer
-# class LoginSerializer(serializers.Serializer):
-#     username = serializers.CharField()
-#     password = serializers.CharField()
-
-#     # class Meta:
-#     #     model = User
-#     #     fields = ('username', 'password')
-#     def validate(self, data):
-#         print("DATA--->", data)
-#         user = authenticate(**data)
-#         if user:
-#             return user
-#         raise serializers.ValidationError("Incorrect Credentials")
-
 class LoginSerializer(serializers.Serializer):
-    username = serializers.CharField(required=True)
-    password = serializers.CharField(style={"input_type": "password"})
+    username = serializers.CharField()
+    password = serializers.CharField()
+    
+    def __init__(self, *args, **kwargs):
+        super(LoginSerializer, self).__init__(*args, **kwargs)
 
-    def authenticate(self, **kwargs):
-        return authenticate(self.context["request"], **kwargs)
+        self.request = self.context.get("request")
 
-    def _validate_email(self, email, password):
-        user = None
 
-        if email and password:
-            user = self.authenticate(email=email, password=password)
-        else:
-            msg = ('Must include "username" and "password".')
-            raise exceptions.ValidationError(msg)
 
-        return user
-
-    def _validate_username(self, username, password):
+    def _validate_username(self,username, password):
         user = None
 
         if username and password:
             user = self.authenticate(username=username, password=password)
         else:
-            msg = _(
-                'Must include "username or "email" and "password".'
-            )
+            msg = ('Must include "username" and "password".')
             raise exceptions.ValidationError(msg)
-
-        return user
-
-    def _validate_username_email(self, username, email, password):
-        user = None
-
-        if email and password:
-            user = self.authenticate(email=email, password=password)
-        elif username and password:
-            user = self.authenticate(username=username, password=password)
-        else:
-            msg = _(
-                'Must include either  "email" and "password".'
-            )
-            raise exceptions.ValidationError(msg)
-
-        return user
-
-    def validate(self, attrs):
-        username = attrs.get("username")
-        email = attrs.get("email")
-        password = attrs.get("password")
+        token = RefreshToken.for_user(user)
         
-        user = None
-
-        if username:
-            user = self._validate_username_email(username, "", password)
-    
-        if user:
-            if not user.is_active:
-                msg = ("User account is inactive.")
-                raise exceptions.ValidationError(msg)
-        else:
-            msg = ("please check your username or password.")
-            raise exceptions.ValidationError(msg)
-
-        
-
-        attrs["user"] = user
-        token = RefreshToken.for_user(attrs["user"])
-        token = {
-            "refresh_token": str(token),
-            "access_token": str(token.access_token)
+        return {
+            'user': user, 
+            'token': token
         }
-        return attrs
+
+    # class Meta:
+    #     model = User
+    #     fields = ('username', 'password')
+    # def validate(self, attrs):
+    #     print("DATA--->", attrs['username'])
+    #     print(self.request)
+    #     user = self.request.user
+    #     print(user)
+    #     # user = authenticate(username=validated_data['username'], password=validated_data['password'])
+    #     user = CustomUser.objects.filter(username=user, password=attrs['password']).first()
+    #     # login_user = login(self.request, user)
+    #     login_user = authenticate(username=attrs['username'], password=attrs['password'])
+    #     print("LOGIN USER:", login_user)
+    #     if login_user:
+    #         return user
+    #     raise serializers.ValidationError("Incorrect Credentials")
+
+# class LoginSerializer(serializers.Serializer):
+#     username = serializers.CharField(required=True)
+#     password = serializers.CharField(style={"input_type": "password"})
+
+#     def authenticate(self, **kwargs):
+#         return authenticate(self.context["request"], **kwargs)
+
+#     def _validate_email(self, email, password):
+#         user = None
+
+#         if email and password:
+#             user = self.authenticate(email=email, password=password)
+#         else:
+#             msg = ('Must include "username" and "password".')
+#             raise exceptions.ValidationError(msg)
+
+#         return user
+
+#     def _validate_username(self, username, password):
+#         user = None
+
+#         if username and password:
+#             user = self.authenticate(username=username, password=password)
+#         else:
+#             msg = _(
+#                 'Must include "username or "email" and "password".'
+#             )
+#             raise exceptions.ValidationError(msg)
+
+#         return user
+
+#     def _validate_username_email(self, username, email, password):
+#         user = None
+
+#         if email and password:
+#             user = self.authenticate(email=email, password=password)
+#         elif username and password:
+#             user = self.authenticate(username=username, password=password)
+#         else:
+#             msg = _(
+#                 'Must include either  "email" and "password".'
+#             )
+#             raise exceptions.ValidationError(msg)
+
+#         return user
+
+#     def validate(self, attrs):
+#         username = attrs.get("username")
+#         email = attrs.get("email")
+#         password = attrs.get("password")
+        
+#         user = None
+
+#         if username:
+#             user = self._validate_username_email(username, "", password)
+    
+#         if user:
+#             if not user.is_active:
+#                 msg = ("User account is inactive.")
+#                 raise exceptions.ValidationError(msg)
+#         else:
+#             msg = ("please check your username or password.")
+#             raise exceptions.ValidationError(msg)
+
+        
+
+#         attrs["user"] = user
+#         token = RefreshToken.for_user(attrs["user"])
+#         token = {
+#             "refresh_token": str(token),
+#             "access_token": str(token.access_token)
+#         }
+#         return attrs
 
         
 

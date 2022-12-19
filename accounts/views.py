@@ -66,61 +66,70 @@ class RegisterAPI(generics.GenericAPIView):
         serializer.is_valid(raise_exception=True)
 
         user = serializer.save()
-        instance, token = AuthToken.objects.create(user)
         return Response({
             "user": UserSerializer(user, context=self.get_serializer_context()).data,
-            "token": token,
-            "expiry": instance.expiry,
-            
         })
 
-
-# # Login API
-class LoginAPI(LoginView):
-    queryset = ""
-    template_name = "login.html"
-    allowed_methods = ("POST","GET")
-
-
-    def get(self, request):
-        users = CustomUser.objects.all()
-        serializer = LoginSerializer(users, many=True)
-        return Response(serializer.data)
-
-    def get_response(self, request):
-        serializer_class = self.get_response_serializer()
-        if getattr(settings, "REST_USE_JWT", False):
-            data = {"user": self.user, "token": self.token}
-            serializer = serializer_class(
-                instance=data, context={"request": self.request}
-            )
-        else:
-            serializer = serializer_class(
-                instance=self.token, context={"request": self.request}
-            )
-        context = {
-            'data': serializer.data,
-            'status': status.HTTP_200_OK,
-        }
-        response = JsonResponse(context)
-
-        return response
-
+class LoginAPI(generics.GenericAPIView):
+    serializer_class = LoginSerializer
+    permission_classes = ()
     def post(self, request, *args, **kwargs):
-        self.request = request
-        self.serializer = self.get_serializer(
-            data=self.request.data, context={"request": request}
-        )
-        if self.serializer.is_valid():
-            self.login()
+        serializer = self.get_serializer(data=request.data, context={"request": request})
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data
+        print(user['username'])
+        user= CustomUser.objects.get(username=serializer.validated_data['username'])
+        # instance, token = AuthToken.objects.create(user)
+        return JsonResponse({
+            "user": UserSerializer(user, context=self.get_serializer_context()).data,
+        })
+        
+# # Login API
+# class LoginAPI(LoginView):
+#     queryset = ""
+#     template_name = "login.html"
+#     allowed_methods = ("POST","GET")
 
-        else:
-            print("errors", self.serializer.errors)
-            response = HttpResponse(json.dumps({'error': self.serializer.errors}), 
-                content_type='application/json')
-            response.status_code = 400
-            return response
-        return self.get_response(request)
+
+#     def get(self, request):
+#         users = CustomUser.objects.all()
+#         serializer = LoginSerializer(users, many=True)
+#         return Response(serializer.data)
+
+#     def get_response(self, request):
+#         serializer_class = self.get_response_serializer()
+#         if getattr(settings, "REST_USE_JWT", False):
+#             data = {"user": self.user, "token": self.token}
+#             serializer = serializer_class(
+#                 instance=data, context={"request": self.request}
+#             )
+#         else:
+#             serializer = serializer_class(
+#                 instance=self.token, context={"request": self.request}
+#             )
+#         context = {
+#             'data': serializer.data,
+#             'status': status.HTTP_200_OK,
+#         }
+#         response = JsonResponse(context)
+
+#         return response
+
+#     def post(self, request, *args, **kwargs):
+#         self.request = request
+#         self.serializer = self.get_serializer(
+#             data=self.request.data, context={"request": request}
+#         )
+#         if self.serializer.is_valid():
+#             self.login()
+
+#         else:
+#             print("errors", self.serializer.errors)
+#             response = HttpResponse(json.dumps({'error': self.serializer.errors}), 
+#                 content_type='application/json')
+#             response.status_code = 400
+#             return response
+#         return self.get_response(request)
 
 # Get User API
 class UserAPI(generics.RetrieveAPIView):
