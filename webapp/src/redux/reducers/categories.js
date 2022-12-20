@@ -96,7 +96,7 @@ export const getCategories = () => async (dispatch) => {
 }
 
 export const deleteCategory = (id) => async (dispatch) => {
-    const response = await fetch(`http://127.0.0.1:8000/api/category/${id}/`, {
+    const response = await fetch(`http://www.bukmarkz.com/api/category/${id}/`, {
         method: "GET",
         headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
     });
@@ -133,7 +133,7 @@ export const addCategory = (body) => async (dispatch) => {
     var color = body.color;
     var priv = body.private;
 
-    const response = await fetch("http://127.0.0.1:8000/api/category/", {
+    const response = await fetch("http://www.bukmarkz.com/api/category/", {
         method: "POST",
         headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
         body: JSON.stringify({
@@ -162,7 +162,7 @@ export const updateCategory = (body, id) => async (dispatch) => {
     var color = body.color;
     var priv = body.private;
 
-    const response = await fetch(`http://127.0.0.1:8000/api/category/${id}/`, {
+    const response = await fetch(`http://www.bukmarkz.com/api/category/${id}/`, {
         method: "POST",
         headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
         body: JSON.stringify({
@@ -204,7 +204,7 @@ export const importBookmark = (body) => async (dispatch) => {
             dispatch(createMessage({fileNotValid: 'Can not open imported file'}))
             return { ok : false }
         } else if (data === 'too much bookmarks') {
-            dispatch(createMessage({tooManyData: 'Your file contains to many categories or bookmarks. Upgrade to Premium'}))
+            dispatch(createMessage({tooManyData: 'Your file contains too many categories or bookmarks. Upgrade to Premium'}))
             return { ok : false }
         } else {
             dispatch(createMessage({bookmarkUploaded: `Bookmarks Uploaded Successfully`}))

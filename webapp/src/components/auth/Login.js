@@ -142,6 +142,7 @@ const Login = ({
       data: {
         email: formPassReset.email,
       },
+      headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
     })
       .then((response) => {
         setOpenForgotPassword(false);
