@@ -24,7 +24,7 @@ const PricePage = () => {
           {
             subscriptions.map((plan, index) => (
               <div className={style.cardContainer}>
-                <div style={{backgroundColor: plansColorScheme[plan.name.toUpperCase()].titleBgColor}}
+                <div style={{backgroundColor: '#a3c93a'}}
                      className={style.header}>
                   <h2
                     style={{
@@ -63,7 +63,7 @@ const PricePage = () => {
                     label={'Order Now!'}
                     style={{
                       color: plansColorScheme[plan.name.toUpperCase()].btnTextColor,
-                      backgroundColor: plansColorScheme[plan.name.toUpperCase()].btnBgColor
+                      backgroundColor: '#a3c93a'
                     }}
                   />
                 </div>
