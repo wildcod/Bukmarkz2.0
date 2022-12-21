@@ -180,7 +180,7 @@ export const loadUser = () => async (dispatch) => {
 export const loginUser = (body) => async (dispatch) => {
     var username = body.username;
     var password = body.password
-    const response = await fetch("http://127.0.0.1:8000/api/auth/login/", {
+    const response = await fetch("https://www.bukmarkz.com/api/auth/login/", {
         method: "POST",
         headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
         body: JSON.stringify({

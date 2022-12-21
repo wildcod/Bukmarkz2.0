@@ -96,7 +96,7 @@ export const getCategories = () => async (dispatch) => {
 }
 
 export const deleteCategory = (id) => async (dispatch) => {
-    const response = await fetch(`http://www.bukmarkz.com/api/category/${id}/`, {
+    const response = await fetch(`https://www.bukmarkz.com/api/category/${id}/`, {
         method: "GET",
         headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
     });
@@ -133,7 +133,7 @@ export const addCategory = (body) => async (dispatch) => {
     var color = body.color;
     var priv = body.private;
 
-    const response = await fetch("http://www.bukmarkz.com/api/category/", {
+    const response = await fetch("https://www.bukmarkz.com/api/category/", {
         method: "POST",
         headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
         body: JSON.stringify({
@@ -162,7 +162,7 @@ export const updateCategory = (body, id) => async (dispatch) => {
     var color = body.color;
     var priv = body.private;
 
-    const response = await fetch(`http://www.bukmarkz.com/api/category/${id}/`, {
+    const response = await fetch(`https://www.bukmarkz.com/api/category/${id}/`, {
         method: "POST",
         headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
         body: JSON.stringify({

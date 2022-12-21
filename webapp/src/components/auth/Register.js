@@ -149,7 +149,6 @@ const Register = ({ onToggle, isLoading, registerUser, error, onClose }) => {
 
     return (
         <div className={s.registerWrapper}>
-            {/* <h2>Create your free account</h2> */}
             <img
                 src={DesktopLogo}
                 alt={'bukmarz-logo'}
