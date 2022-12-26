@@ -22,6 +22,7 @@ class BookmarkViewset(viewsets.ModelViewSet):
     permission_classes = [
         permissions.IsAuthenticated
     ]
+
     @action(methods=['post'], detail=False)
     def importFile(self, request, *args, **kwargs):
         file_main = request.FILES['file']

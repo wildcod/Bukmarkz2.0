@@ -57,6 +57,10 @@ const Header = ({ auth, logOutUser, t }) => {
         
     }
 
+    function scrollToTop(){
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
     return (
         <header className={style.headerWrapper}>
             <div className={style.container}>
@@ -64,7 +68,7 @@ const Header = ({ auth, logOutUser, t }) => {
                   <img src={Menu} onClick={() => setOpenMenu(true)} alt={'menu'} width={35} height={35} />
               </div>
                <div className={style.logo}>
-                   <Link to={'/'}>
+                   <Link to={'/'} onClick={scrollToTop}>
                        <img
                            className={style.desktopLogo}
                            src={DesktopLogo}
