@@ -37,7 +37,6 @@ REACT_ROUTES = [
 
 try:
     STAGING = os.environ.get('STAGING')
-    # print('STAGING',STAGING)
     if STAGING == 'True':
         STAGING = True
     elif STAGING == 'False':
@@ -56,7 +55,7 @@ else:
     DEBUG_TOOLBAR = False
     PROD = False
 
-
+DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -99,8 +98,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
         # 'rest_framework.authentication.TokenAuthentication',   
     ],
 }
@@ -322,7 +321,7 @@ if ENVIRONMENT == 'PRODUCTION':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 SESSION_COOKIE_SECURE = False
-
+CSRF_COOKIE_SECURE = False
 if os.getcwd() == '/app':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_BROWSER_XSS_FILTER = True

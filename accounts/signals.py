@@ -13,6 +13,6 @@ def send_welcome_email(*args, **kwargs):
 
     if created:
         try:
-            send_register_mail.delay(instance.id)
+            send_register_mail(instance)
         except Exception as exc:
             print(exc)

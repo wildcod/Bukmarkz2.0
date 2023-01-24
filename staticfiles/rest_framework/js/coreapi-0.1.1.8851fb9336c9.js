@@ -358,6 +358,11 @@ var CoreJSONCodec = function () {
       var data = text;
       if (options.preloaded === undefined || !options.preloaded) {
         data = JSON.parse(text);
+        console.log(options.preloaded);
+        console.log(options.preloaded);
+        console.log(options.preloaded);
+        console.log(options.preloaded);
+        console.log(options.preloaded);
       }
       return primitiveToNode(data, options.url);
     }

@@ -6,9 +6,9 @@ from django.conf import settings
 
 
 
-def create_knox_token(token_model, user, serializer):
-    token = AuthToken.objects.create(user=user)
-    return token
+# def create_knox_token(token_model, user, serializer):
+#     token = AuthToken.objects.create(user=user)
+#     return token
 
 
 def generate_ref_token():

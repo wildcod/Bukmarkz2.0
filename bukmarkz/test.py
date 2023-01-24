@@ -81,7 +81,6 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_auth',
     'django_rest_passwordreset',
-    'knox',
     'drf_yasg',
     "celery",  # Don't forget to add celery
     "django_celery_results",  # celery result
@@ -261,11 +260,6 @@ REST_FRAMEWORK = {
     "DEFAULT_RENDERER_CLASSES": DEFAULT_RENDERER_CLASSES,
     "DATETIME_FORMAT": "%d.%m.%Y %H:%M",
     'EXCEPTION_HANDLER': 'api.utils.exception.custom_exception_handler'
-}
-
-REST_KNOX = {
-  'TOKEN_TTL': timedelta(weeks=52),
-  'EXPIRY_DATETIME_FORMAT': REST_FRAMEWORK["DATETIME_FORMAT"],
 }
 
 
