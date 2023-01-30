@@ -278,6 +278,13 @@ if DEBUG:
 ###############################################################################
 
 
+# Email settings
+# EMAIL_HOST = 'localhost'
+# EMAIL_PORT = 1025
+EMAIL_ADDRESS = 'info@bukmarkz.com'
+EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+# SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
+###############################################################################
 
 SENDGRID_API_KEY='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'
 
