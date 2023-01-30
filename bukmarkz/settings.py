@@ -112,7 +112,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = True
 
@@ -278,15 +278,8 @@ if DEBUG:
 ###############################################################################
 
 
-# Email settings
-# EMAIL_HOST = 'localhost'
-# EMAIL_PORT = 1025
-EMAIL_ADDRESS = 'eelimerdan752@gmail.com'
-EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")
-# SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
-###############################################################################
 
-SENDGRID_API_KEY='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'
+SENDGRID_API_KEY='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'
 
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey'
@@ -294,7 +287,7 @@ EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-DEFAULT_FROM_EMAIL='markjohnson@promptstation.com'
+DEFAULT_FROM_EMAIL='info@bukmarkz.com'
 
 # Stripe keys
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
