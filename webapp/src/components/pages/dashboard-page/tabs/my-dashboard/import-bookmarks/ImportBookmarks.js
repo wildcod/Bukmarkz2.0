@@ -2,12 +2,31 @@ import React, {useState} from 'react';
 import Button from '../../../../../common/button/Button'
 import s from './ImportBookmarks.module.scss'
 import Spinner from "../../../../../common/spinner/Spinner";
+import axios from "axios";
 
 const ImportBookmarks = ({
-     importBookmark,
-     closeModal,
-     getBookmarks
+    importBookmark,
+    closeModal,
+    getBookmarks,
+    onRefresh
  }) => {
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== "") {
+            const cookies = document.cookie.split(";");
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === name + "=") {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getCookie("csrftoken");
+
     const [file, setFile] = useState(null)
     const [category, setCategory] = useState('')
     const [isLoading, setIsLoading] = useState(false)
@@ -22,23 +41,51 @@ const ImportBookmarks = ({
         }
     }
 
+    // const onSubmit = (e) => {
+    //     e.preventDefault()
+    //     const data = new FormData()
+    //     data.append('file', file, file.name);
+    //     data.append('category', category);
+    //     setIsLoading(true)
+    //     importBookmark(data)
+    //         .then((res) => {
+    //             if(res.ok){
+    //                 getBookmarks()
+    //             }
+    //             setIsLoading(false)
+    //             closeModal()
+    //         }).catch(error => {
+    //             console.error(error)
+    //             setIsLoading(false)
+    //             closeModal()
+    //     })
+    // }
+
     const onSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+
         const data = new FormData()
         data.append('file', file, file.name);
         data.append('category', category);
         setIsLoading(true)
-        importBookmark(data)
-            .then((res) => {
-                if(res.ok){
-                    getBookmarks()
-                }
-                setIsLoading(false)
-                closeModal()
-            }).catch(error => {
+
+        console.log(data);
+        axios({
+            method: "POST",
+            url:`/api/import/importFile/`,
+            data: data,
+            headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
+        })
+        .then((response) => {
+            onRefresh();
+            setIsLoading(false);
+            closeModal();
+        }).catch((error) => {
+            if (error) {
                 console.error(error)
                 setIsLoading(false)
                 closeModal()
+            }
         })
     }
 

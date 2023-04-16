@@ -10,8 +10,23 @@ import { useHistory } from "react-router-dom";
 import Modal from "../common/Modal/Modal";
 import AccountCircleOutlinedIcon from "../../../node_modules/@mui/icons-material/AccountCircleOutlined";
 import LockOutlinedIcon from "../../../node_modules/@mui/icons-material/LockOutlined";
-import DesktopLogo from '../../assets/img/fwdlogo/logo.png';
+import DesktopLogo from "../../assets/img/fwdlogo/logo.png";
+// import {Cookies} from 'react-cookie'
 
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== "") {
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.substring(0, name.length + 1) === name + "=") {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
 
 const Login = ({
   onToggle,
@@ -22,104 +37,67 @@ const Login = ({
   error,
   resetPassword,
 }) => {
-  // const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
   const [openForgotPassword, setOpenForgotPassword] = useState(false);
-  
-  const [formLogin, setLoginForm] = useState({
+  const [loginForm, setLoginForm] = useState({
     username: "",
     password: "",
-  })
-
+  });
   const [formPassReset, setFormPassReset] = useState({
     email: "",
   });
-
+  const csrftoken = getCookie("csrftoken");
   const history = useHistory();
 
-  function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== "") {
-        const cookies = document.cookie.split(";");
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            if (cookie.substring(0, name.length + 1) === name + "=") {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
+  const onSubmit = (e) => {
+    e.preventDefault();
+    loginUser({
+      username: loginForm.username,
+      password: loginForm.password,
+    }).then((res) => {
+      if (res.ok) {
+        if (!isFromExtension) {
+          onClose();
+          history.push("/dashboard");
         }
-    }
-    return cookieValue;
-  }
-  const csrftoken = getCookie("csrftoken");
+      }
+    });
+  };
 
-  const username = formLogin.username;
-  const password = formLogin.password;
-
-  // const onSubmit = (e) => {
-  //   console.log("CLICK");
-  //   e.preventDefault();
-  //   loginUser({
-  //     username,
-  //     password,
-  //   }).then((res) => {
-  //     if (res.ok) {
-  //       if (!isFromExtension) {
-  //         onClose();
-  //         history.push("/dashboard");
+  // function passLoginForm(event) {
+  //   event.preventDefault();
+  //   var data = {
+  //     username: username,
+  //     password: password,
+  //   }
+  //   let cookie = new Cookies()
+  //   const token = cookie.get(AUTH_TOKEN_COOKIE_NAME)
+  //   axios({
+  //     method: "POST",
+  //     url:`/api/auth/login/`,
+  //     data:JSON.stringify(data),
+  //     headers: { Authorization : `Token ${token}` },
+  //   }).then((response, dispatch) => {
+  //     loginUser({
+  //       username,
+  //       password,
+  //     }).then((res) => {
+  //       if (res.ok) {
+  //         if (!isFromExtension) {
+  //           onClose();
+  //           history.push("/dashboard");
+  //         }
   //       }
-  //     }
-  //   });
-  //   // passLoginForm(e);
-  // };
-
-  // const reactLogin = (e) => {
-  //   loginUser({
-  //     username,
-  //     password,
-  //   }).then((res) => {
-  //     if (res.ok) {
-  //       if (!isFromExtension) {
-  //         onClose();
-  //         history.push("/dashboard");
+  //     });
+  //   }).catch((error) => {
+  //       if (error.response) {
+  //         // setPassErr(error.response.data.err[0].split(" - ")[1]);
+  //         console.log(error.response);
+  //         console.log(error.response.status);
+  //         console.log(error.response.headers);
   //       }
-  //     }
-  // });
-
-
-  function passLoginForm(event) {
-    event.preventDefault();
-    var data = {
-      username: username,
-      password: password,
-    }
-    axios({
-      method: "POST",
-      url:`/api/auth/login/`,
-      data:JSON.stringify(data),
-      headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
-    }).then((response, dispatch) => {
-      loginUser({
-        username,
-        password,
-      }).then((res) => {
-        if (res.ok) {
-          if (!isFromExtension) {
-            onClose();
-            history.push("/dashboard");
-          }
-        }
-      });
-    }).catch((error) => {
-        if (error.response) {
-          // setPassErr(error.response.data.err[0].split(" - ")[1]);
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-    })
-  }
+  //   })
+  // }
 
   const forgotPassHandler = (e) => {
     e.preventDefault();
@@ -150,7 +128,7 @@ const Login = ({
       })
       .catch((error) => {
         if (error.response) {
-          console.log(error.response);
+          console.log(error.response.data.err[0]);
           console.log(error.response.status);
           console.log(error.response.headers);
         }
@@ -175,11 +153,9 @@ const Login = ({
 
   return (
     <div className={s.registerWrapper}>
-      <img
-        src={DesktopLogo}
-        alt={'bukmarz-logo'}
-      />
-      <form id="loginForm" className={s.formContainer} onSubmit={passLoginForm}>
+      <img src={DesktopLogo} alt={"bukmarz-logo"} />
+      <div className="alert-area" style={{ color: "red" }}></div>
+      <form id="loginForm" className={s.formContainer} onSubmit={onSubmit}>
         <div className={s.formGroup}>
           <div className={s.formInput}>
             <div className={s.svgDiv}>
@@ -192,7 +168,7 @@ const Login = ({
               required
               name={"username"}
               placeholder={"Username"}
-              text={formLogin.username}
+              value={loginForm.username}
               onChange={handleLoginChange}
             />
           </div>
@@ -209,7 +185,7 @@ const Login = ({
               required
               name={"password"}
               placeholder={"Password"}
-              text={formLogin.password}
+              value={loginForm.password}
               onChange={handleLoginChange}
             />
           </div>
@@ -217,16 +193,19 @@ const Login = ({
       </form>
       <div className={s.formBottom}>
         <div className={s.btnContainer}>
-          <Button form="loginForm" label={"Login"} type={"submit"} isLoading={isLoading} />
+          <Button
+            form="loginForm"
+            label={"Login"}
+            type={"submit"}
+            isLoading={isLoading}
+          />
         </div>
         {!isFromExtension ? (
-        <p className={s.forgotCaption}>
-          <span
-            onClick={() => setOpenForgotPassword(true)}
-          >
-            Forgot Password?
-          </span>
-        </p>
+          <p className={s.forgotCaption}>
+            <span onClick={() => setOpenForgotPassword(true)}>
+              Forgot Password?
+            </span>
+          </p>
         ) : null}
       </div>
       {!isFromExtension ? (

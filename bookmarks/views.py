@@ -1,4 +1,6 @@
 from django.http import HttpResponse
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required 
 from rest_framework import viewsets, permissions
 from rest_framework.response import Response
 from .models import Bookmark, Recommendation, HelpUser, Category
@@ -77,9 +79,13 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
 class RecommendationViewSet(viewsets.ModelViewSet):
     permission_classes = [
-            permissions.IsAuthenticated
+            permissions.AllowAny
     ]
     serializer_class = RecommendationSerializer
+
+    @method_decorator(login_required(login_url='/'))
+    def dispatch(self, *args, **kwargs):
+        return super(RecommendationViewSet, self).dispatch(*args, **kwargs)
 
     def get_queryset(self):
         return self.request.user.recommendation.all()

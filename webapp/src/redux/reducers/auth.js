@@ -1,4 +1,4 @@
-import { AUTH_TOKEN_COOKIE_NAME } from '../../constants'
+import { AUTH_TOKEN_NAME } from '../../constants'
 import { Cookies } from 'react-cookie'
 import {
     USER_LOADING,
@@ -19,7 +19,7 @@ import { authAPI } from "../../api/authApi";
 import { subscriptionAPI } from "../../api/subscription";
 import { createError } from "./error";
 import createMessage from "./message";
-import {errorParser} from "../../utils";
+import {errorParser, getDataFromLocalStorage, setDataToLocalStorage} from "../../utils";
 import { useHistory } from "react-router-dom";
 
 
@@ -38,18 +38,18 @@ function getCookie(name) {
     return cookieValue;
 }
 const csrftoken = getCookie("csrftoken");
-
 const cookies = new Cookies()
 const setAuthTokenToCookies = async (token, expiry) => {
+    console.log('YO', token)
     try {
-        cookies.set(AUTH_TOKEN_COOKIE_NAME, token, {expires: new Date(expiry)})
+        cookies.set(AUTH_TOKEN_NAME, token, {expires: new Date(expiry)})
     } catch (e) {
         console.error(e)
     }
 }
 
 const initialState = {
-    token: cookies.get(AUTH_TOKEN_COOKIE_NAME),
+    token: getDataFromLocalStorage(AUTH_TOKEN_NAME),
     isAuthenticated: false,
     isLoading: false,
     user: null,
@@ -90,7 +90,7 @@ export default function (state = initialState, action) {
         case LOGIN_FAIL:
         case LOGOUT_SUCCESS:
         case REGISTER_FAIL:
-            cookies.remove(AUTH_TOKEN_COOKIE_NAME)
+            localStorage.removeItem(AUTH_TOKEN_NAME)
             return {
                 ...state,
                 token: null,
@@ -148,7 +148,6 @@ const stopLoading = (dispatch) => {
 // CHECK TOKEN AND LOAD USER
 export const loadUser = () => async (dispatch) => {
     dispatch({type: USER_LOADING})
-
     try {
         let data = await authAPI.me()
         dispatch(actions.setUser(data))
@@ -178,28 +177,24 @@ export const loadUser = () => async (dispatch) => {
 // }
 
 export const loginUser = (body) => async (dispatch) => {
-    var username = body.username;
-    var password = body.password
-    const response = await fetch("https://www.bukmarkz.com/api/auth/login/", {
-        method: "POST",
-        headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
-        body: JSON.stringify({
-            username,
-            password
-        })
-    });
-    const data = await response.json();
+    // fetch("http://localhost:8000/api/auth/login/", {
+    //     method: "POST",
+    //     headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
+    //     body: JSON.stringify({
+    //         username,
+    //         password
+    //     })
+    // });
 
     try {
         dispatch(actions.setLoading(true))
-        console.log(data.access);
-        // let data = await authAPI.login(body)
-        await setAuthTokenToCookies(data.access)
-        dispatch(actions.setUser(data.user))
+        const { data } = await authAPI.login(body)
+        setDataToLocalStorage(AUTH_TOKEN_NAME, data.key)
+       
+        // get loggedIn user details
+        dispatch(loadUser());
         dispatch(actions.setLoginSuccess(data))
         stopLoading(dispatch)
-
-        localStorage.setItem("authTokens", JSON.stringify(data));
         return { ok: true }
     } catch(e) {
         return { ok: false }
@@ -211,7 +206,6 @@ export const registerUser = (body) => async (dispatch) => {
     try {
         dispatch(createError(''))
         dispatch(actions.setLoading(true))
-        console.log("asfklhsdfgkldfgsjhdfsg", body)
         let data = await authAPI.register(body)
         await setAuthTokenToCookies(data.token, data.expiry)
         dispatch(actions.setRegisterSuccess(data))

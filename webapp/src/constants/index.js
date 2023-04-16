@@ -96,7 +96,7 @@ export const plansColorScheme = {
     // },
 }
 
-export const AUTH_TOKEN_COOKIE_NAME = '__HOST-BUKMARKZ_AUTH_TOKEN'
+export const AUTH_TOKEN_NAME = 'AUTH_TOKEN'
 
 export const BG_IMAGES = [
     {

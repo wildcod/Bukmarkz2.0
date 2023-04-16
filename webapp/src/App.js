@@ -1,30 +1,28 @@
-import React, {useEffect} from 'react'
-import HomePage from "./components/pages/home-page/HomePage";
-import Layout from "./components/common/layout/Layout";
+import React, { useEffect } from 'react';
+import { Provider as AlertProvider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
+import { Helmet } from "react-helmet";
+import { connect } from 'react-redux';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
+    BrowserRouter as Router, Route, Switch
 } from "react-router-dom";
-import PricePage from "./components/pages/price-page/PricePage";
-import AboutPage from "./components/pages/about-page/AboutPage";
-import ServicesPage from "./components/pages/services-page/ServicesPage";
-import BlogPage from "./components/pages/blog-page/BlogPage";
-import ContactPage from "./components/pages/contact-page/ContactPage";
-import DashboardPage from "./components/pages/dashboard-page/Dashboard";
-import ProfilePage from "./components/pages/profile-page/ProfilePage";
-import {initializeApp} from './redux/reducers/appReducer'
-import {connect, useDispatch} from 'react-redux'
-import {compose} from 'redux'
-import Alerts from '../src/components/common/alerts/Alerts'
-import {Provider as AlertProvider, positions} from 'react-alert'
-import AlertTemplate from 'react-alert-template-basic'
+import { compose } from 'redux';
+import Alerts from '../src/components/common/alerts/Alerts';
+import Layout from "./components/common/layout/Layout";
+import ProtectedRoute from "./components/common/protected-route/ProtectedRoute";
 import Spinner from "./components/common/spinner/Spinner";
+import AboutPage from "./components/pages/about-page/AboutPage";
+import BlogPage from "./components/pages/blog-page/BlogPage";
 import BookmarkExtensionPage from "./components/pages/bookmark-extension-page/BookmarkExtensionPage";
 import BookmarkGuide from "./components/pages/bookmark-guide/BookmarkGuide";
-import ProtectedRoute from "./components/common/protected-route/ProtectedRoute";
-import {Helmet} from "react-helmet";
+import ContactPage from "./components/pages/contact-page/ContactPage";
+import DashboardPage from "./components/pages/dashboard-page/Dashboard";
+import HomePage from "./components/pages/home-page/HomePage";
+import PricePage from "./components/pages/price-page/PricePage";
+import ProfilePage from "./components/pages/profile-page/ProfilePage";
+import ServicesPage from "./components/pages/services-page/ServicesPage";
 import { SEO_DESCRIPTION, SEO_TITLE } from './constants';
+import { initializeApp } from './redux/reducers/appReducer';
 
 const alertOptions = {
     timeout: 5000,

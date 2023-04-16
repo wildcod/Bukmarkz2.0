@@ -39,7 +39,7 @@ def send_register_mail(self, user_id):
 @shared_task(bind=True, max_retries=20)
 def send_contact_email(self, email, topic, message):
     subject = topic
-    recipients = settings.DEFAULT_FROM_EMAIL
+    recipients = email
 
     body = {
         'email': email,
@@ -62,7 +62,7 @@ def send_reset_password_email(self, user_id):
     body = {
         'reset_url': url + 'password/reset/confirm/' + urlsafe_base64_encode(force_bytes(user.pk)) + '/' + default_token_generator.make_token(user)
     }
-    print(body['reset_url'])
+    
     subject = "Reset Your password"
     recipients = [user.email]
 

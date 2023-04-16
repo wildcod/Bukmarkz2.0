@@ -115,7 +115,7 @@ const Register = ({ onToggle, isLoading, registerUser, error, onClose }) => {
             password2: password2,
             country: country,
             phone: phoneNumber,
-            token: csrftoken
+            // token: csrftoken
         }
         axios({
             method: "POST",

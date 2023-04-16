@@ -226,9 +226,13 @@ const MyDashboard = ({
         }
     }, [reduxCategories, reduxBookmarks])
 
-    useEffect(() => {
+    const fetchCategoriesAndBookmarks = () => {
         getCategories()
         getBookmarks()
+    }
+
+    useEffect(() => {
+        fetchCategoriesAndBookmarks();
         getUserSubscriptionDetails()
     }, [])
     console.log('State', { categories, bookmarks })
@@ -291,6 +295,7 @@ const MyDashboard = ({
                             importBookmark={importBookmark}
                             closeModal={closeModal}
                             getBookmarks={getBookmarks}
+                            onRefresh={fetchCategoriesAndBookmarks}
                         />
                 }
             </Modal>

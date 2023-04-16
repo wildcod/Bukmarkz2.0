@@ -160,7 +160,7 @@ const Main = ({
                         isSubscribed={auth.is_subscribed}
                     />
             ))}
-            </>
+        </>
     )
 
     useEffect(() => {

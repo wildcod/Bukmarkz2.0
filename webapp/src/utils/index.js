@@ -29,3 +29,19 @@ export const setCookie = (token) => {
     d.setTime(d.getTime() + (24 * 60 * 60 * 1000))
     document.cookie = `ref_token=${token}; expires=${d}; path=/`
 }
+
+export const setDataToLocalStorage = (key, data) => {
+    try{
+     localStorage.setItem(key, JSON.stringify(data))
+    }catch(error){
+        console.error(error.message)
+    }
+}
+
+export const getDataFromLocalStorage = (key) => {
+    try{
+      return JSON.parse(localStorage.getItem(key))
+    }catch(error){
+        console.error(error.message)
+    }
+}

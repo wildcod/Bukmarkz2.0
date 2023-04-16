@@ -1,14 +1,14 @@
 import React from 'react';
 import style from './HomeServices.module.scss';
-import BookmarkAddIcon from '../../../../../node_modules/@mui/icons-material/BookmarkAdd';
-import FormatListBulletedIcon from "../../../../../node_modules/@material-ui/icons/FormatListBulleted";
-import DevicesIcon from "../../../../../node_modules/@material-ui/icons/Devices";
-import AttachMoneyIcon from "../../../../../node_modules/@material-ui/icons/AttachMoney";
-import ArrowUpwardOutlinedIcon from "../../../../../node_modules/@material-ui/icons/ArrowUpwardOutlined";
-import ContactSupportIcon from "../../../../../node_modules/@material-ui/icons/ContactSupport";
-import TranslateIcon from "../../../../../node_modules/@material-ui/icons/Translate";
-import LanguageIcon from "../../../../../node_modules/@material-ui/icons/Language";
-import SupportAgentIcon from '../../../../../node_modules/@mui/icons-material/SupportAgent';
+import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
+import DevicesIcon from "@mui/icons-material/Devices";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import ArrowUpwardOutlinedIcon from "@mui/icons-material/ArrowUpwardOutlined";
+import ContactSupportIcon from "@mui/icons-material/ContactSupport";
+import TranslateIcon from "@mui/icons-material/Translate";
+import LanguageIcon from "@mui/icons-material/Language";
+import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 // import heartImage from '../../../../assets/img/heart-white.png'
 // import leafImage from '../../../../assets/img/leaf-white.png'
 // import moneyImage from '../../../../assets/img/money-bag-white.png'
