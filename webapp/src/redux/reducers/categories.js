@@ -96,57 +96,20 @@ export const getCategories = () => async (dispatch) => {
 }
 
 export const deleteCategory = (id) => async (dispatch) => {
-    const response = await fetch(`https://www.bukmarkz.com/api/category/${id}/`, {
-        method: "GET",
-        headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
-    });
-    const data = await response.json();
-    console.log(data.id);
-
     try {
-        // await dashboardAPI.deleteCategory(data)
+        await dashboardAPI.deleteCategory(id)
         dispatch(createMessage({categoryDeleted: 'category Deleted'}))
-        dispatch(actions.deleteCategory(data))
+        dispatch(actions.deleteCategory(id))
         return { ok: true }
-    } catch(e) {
+    } catch (e) {
         dispatch(createError(e))
         return { ok: false }
     }
-};
-
-// export const deleteCategory = (id) => async (dispatch) => {
-//     try {
-//         await dashboardAPI.deleteCategory(id)
-//         dispatch(createMessage({categoryDeleted: 'category Deleted'}))
-//         dispatch(actions.deleteCategory(id))
-//         return { ok: true }
-//     } catch (e) {
-//         dispatch(createError(e))
-//         return { ok: false }
-//     }
-
-// }
+}
 
 export const addCategory = (body) => async (dispatch) => {
-    var title = body.title;
-    var user = body.user;
-    var color = body.color;
-    var priv = body.private;
-
-    const response = await fetch("https://www.bukmarkz.com/api/category/", {
-        method: "POST",
-        headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
-        body: JSON.stringify({
-            title,
-            user,
-            color,
-            priv,
-        })
-    });
-    const data = await response.json();
-
     try {
-        // let data = await dashboardAPI.saveCategory(body)
+        let data = await dashboardAPI.saveCategory(body)
         dispatch(createMessage({categoryAdded: 'Category Added'}))
         dispatch(actions.addCategory(data))
         return { ok: true }
@@ -156,46 +119,18 @@ export const addCategory = (body) => async (dispatch) => {
     }
 };
 
+
 export const updateCategory = (body, id) => async (dispatch) => {
-    var title = body.title;
-    var user = body.user;
-    var color = body.color;
-    var priv = body.private;
-
-    const response = await fetch(`https://www.bukmarkz.com/api/category/${id}/`, {
-        method: "POST",
-        headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
-        body: JSON.stringify({
-            title,
-            user,
-            color,
-            priv,
-        })
-    });
-    const data = await response.json();
-
     try {
-        // let data = await dashboardAPI.updateCategory(data, id)
+        let data = await dashboardAPI.updateCategory(body, id)
         dispatch(createMessage({categoryUpdated: 'Category Updated'}))
-        dispatch(actions.updateCategory(data, id))
+        dispatch(actions.updateCategory(data))
         return { ok: true }
-    } catch(e) {
+    } catch (e) {
         dispatch(createError(e))
         return { ok: false }
     }
-};
-
-// export const updateCategory = (body, id) => async (dispatch) => {
-//     try {
-//         let data = await dashboardAPI.updateCategory(body, id)
-//         dispatch(createMessage({categoryUpdated: 'Category Updated'}))
-//         dispatch(actions.updateCategory(data))
-//         return { ok: true }
-//     } catch (e) {
-//         dispatch(createError(e))
-//         return { ok: false }
-//     }
-// }
+}
 
 export const importBookmark = (body) => async (dispatch) => {
     try {

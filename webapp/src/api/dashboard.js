@@ -51,9 +51,7 @@ export const dashboardAPI = {
     },
 
     importBookmarks(data) {
-        return instance.post(`/import/importFile/`, data, {
-            headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
-        }).then(res => res.data)
+        return instance.post(`/import/importFile/`, data).then(res => res.data)
     },
 
     addBookmarkFromExtension(body) {
