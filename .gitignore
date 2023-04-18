@@ -13,3 +13,5 @@ env
 /webapp/node_modules
 /webapp/.env.development
 /webapp/.env.production
+db.sqlite3
+.sqlite3

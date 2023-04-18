@@ -157,35 +157,7 @@ export const loadUser = () => async (dispatch) => {
     }
 }
 
-// LOGIN USER
-// export const loginUser = (body) => async (dispatch) => {
-//     try {
-//         dispatch(actions.setLoading(true))
-//         console.log(body);
-//         let data = await authAPI.login(body)
-//         await setAuthTokenToCookies(body.token)
-//         dispatch(actions.setUser(data.user))
-//         dispatch(actions.setLoginSuccess(data))
-//         stopLoading(dispatch)
-//         return { ok: true }
-//     } catch (e) {
-//         dispatch({type: LOGIN_FAIL})
-//         dispatch(createError(e))
-//         stopLoading(dispatch)
-//         return { ok: false }
-//     }
-// }
-
 export const loginUser = (body) => async (dispatch) => {
-    // fetch("http://localhost:8000/api/auth/login/", {
-    //     method: "POST",
-    //     headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
-    //     body: JSON.stringify({
-    //         username,
-    //         password
-    //     })
-    // });
-
     try {
         dispatch(actions.setLoading(true))
         const { data } = await authAPI.login(body)

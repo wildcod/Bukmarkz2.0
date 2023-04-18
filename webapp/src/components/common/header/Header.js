@@ -61,6 +61,8 @@ const Header = ({ auth, logOutUser, t }) => {
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
+    console.log('USER', auth)
+
     return (
         <header className={style.headerWrapper}>
             <div className={style.container}>

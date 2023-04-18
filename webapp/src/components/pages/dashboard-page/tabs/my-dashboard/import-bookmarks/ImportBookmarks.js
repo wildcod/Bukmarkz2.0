@@ -41,53 +41,53 @@ const ImportBookmarks = ({
         }
     }
 
-    // const onSubmit = (e) => {
-    //     e.preventDefault()
-    //     const data = new FormData()
-    //     data.append('file', file, file.name);
-    //     data.append('category', category);
-    //     setIsLoading(true)
-    //     importBookmark(data)
-    //         .then((res) => {
-    //             if(res.ok){
-    //                 getBookmarks()
-    //             }
-    //             setIsLoading(false)
-    //             closeModal()
-    //         }).catch(error => {
-    //             console.error(error)
-    //             setIsLoading(false)
-    //             closeModal()
-    //     })
-    // }
-
     const onSubmit = (e) => {
-        e.preventDefault();
-
+        e.preventDefault()
         const data = new FormData()
         data.append('file', file, file.name);
         data.append('category', category);
         setIsLoading(true)
-
-        console.log(data);
-        axios({
-            method: "POST",
-            url:`/api/import/importFile/`,
-            data: data,
-            headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
-        })
-        .then((response) => {
-            onRefresh();
-            setIsLoading(false);
-            closeModal();
-        }).catch((error) => {
-            if (error) {
+        importBookmark(data)
+            .then((res) => {
+                if(res.ok){
+                    getBookmarks()
+                }
+                setIsLoading(false)
+                closeModal()
+            }).catch(error => {
                 console.error(error)
                 setIsLoading(false)
                 closeModal()
-            }
         })
     }
+
+    // const onSubmit = (e) => {
+    //     e.preventDefault();
+
+    //     const data = new FormData()
+    //     data.append('file', file, file.name);
+    //     data.append('category', category);
+    //     setIsLoading(true)
+
+    //     console.log(data);
+    //     axios({
+    //         method: "POST",
+    //         url:`/api/import/importFile/`,
+    //         data: data,
+    //         headers: { "X-CSRFTOKEN": csrftoken, "Content-type": "application/json" },
+    //     })
+    //     .then((response) => {
+    //         onRefresh();
+    //         setIsLoading(false);
+    //         closeModal();
+    //     }).catch((error) => {
+    //         if (error) {
+    //             console.error(error)
+    //             setIsLoading(false)
+    //             closeModal()
+    //         }
+    //     })
+    // }
 
     return (
         <div className={s.importBookmarks}>
