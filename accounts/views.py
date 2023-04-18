@@ -144,6 +144,24 @@ class LoginAPI(LoginView):
 
 
 
+class LogoutView(ListCreateAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
+    allowed_methods = ('GET', 'POST')
+
+    def post(self, request, *args, **kwargs):
+        try:
+            if self.request.data.get('all'):
+                token: OutstandingToken
+                for token in OutstandingToken.objects.filter(user=request.user):
+                    _, _ = BlacklistedToken.objects.get_or_create(token=token)
+                return Response({"status": "OK, goodbye, all refresh tokens blacklisted"})
+            refresh_token = self.request.data.get('refresh_token')
+            token = RefreshToken(token=refresh_token)
+            token.blacklist()
+            return Response({"status": "OK, goodbye"})
+        except Exception:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+
 # # Login API
 # class LoginAPI(LoginView):
 #     queryset = ""
