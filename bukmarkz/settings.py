@@ -31,7 +31,8 @@ REACT_ROUTES = [
     'profile',
     'extension',
     'assets',
-    'guide'
+    'guide',
+    'auth'
 ]
 
 
