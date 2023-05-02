@@ -137,7 +137,7 @@ MIDDLEWARE = [
 # CACHE_MIDDLEWARE_ALIAS = 'default'
 # CACHE_MIDDLEWARE_SECONDS = 604800
 # CACHE_MIDDLEWARE_KEY_PREFIX = ''
-# MAIN_URL = os.environ.get('MAIN_URL')
+MAIN_URL = os.environ.get('MAIN_URL')
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
