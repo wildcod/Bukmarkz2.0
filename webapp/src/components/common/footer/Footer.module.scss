@@ -1,7 +1,7 @@
 @import "../../../scss/mixins";
 @import "../../../scss/variables";
 
-.footerWrapper{
+.footerWrapper {
   padding: 7rem;
   background-color: $color-primary-black;
   min-height: 300px;
@@ -9,14 +9,14 @@
   .contactInput {
     width: 100%;
     padding: 15px 12px;
-    border: 1px solid #F1F2F6;
+    border: 1px solid #f1f2f6;
     font-size: 14px;
     line-height: 20px;
     border-radius: 4px;
     outline: none;
   }
 
-  .innerContainer{
+  .innerContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
@@ -27,7 +27,7 @@
     min-width: 320px;
     max-width: 1200px;
 
-    h3{
+    h3 {
       color: $color-white;
       font-size: 18px;
       font-weight: bold;
@@ -36,63 +36,61 @@
 
     .about {
       p {
-        color: #A0A0A0;
+        color: #a0a0a0;
         font-size: 14px;
         margin-top: 10px;
         line-height: 23px;
       }
     }
 
-    .blogPosts{
-       ul{
-         list-style: none;
-         padding: 0;
-         li{
-           position: relative;
-           align-items: flex-start;
-           display: flex;
-           margin-bottom: 15px;
-           padding-bottom: 10px;
-           border-bottom: 1px solid #3C3C3C;
-           img {
-             margin-right: 5px;
-           }
-           span{
-             margin: 2px 0 10px 0;
-             font-size: 14px;
-             line-height: 20px;
-             font-weight: 400;
-             color: #959595;
-           }
-           span.date{
-             font-size: 11px;
-             color: #5E5E5E;
-             padding-left: 5px;
-           }
-         }
-
-       }
+    .blogPosts {
+      ul {
+        list-style: none;
+        padding: 0;
+        li {
+          position: relative;
+          align-items: flex-start;
+          display: flex;
+          margin-bottom: 15px;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #3c3c3c;
+          img {
+            margin-right: 5px;
+          }
+          span {
+            margin: 2px 0 10px 0;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 400;
+            color: #959595;
+          }
+          span.date {
+            font-size: 11px;
+            color: #5e5e5e;
+            padding-left: 5px;
+          }
+        }
+      }
     }
 
-    .tags{
-       .list{
-         display: flex;
-         flex-wrap: wrap;
+    .tags {
+      .list {
+        display: flex;
+        flex-wrap: wrap;
 
-         span{
-           color: #A0A0A0;
-           font-size: 14px;
-           background: #2d2d2d;
-           display: inline-block;
-           padding: 5px 15px;
-           margin-bottom: 10px;
-           margin-right: 10px;
-         }
-
-       }
+        span {
+          color: #a0a0a0;
+          font-size: 14px;
+          background: #2d2d2d;
+          display: inline-block;
+          padding: 5px 15px;
+          margin-bottom: 10px;
+          margin-right: 10px;
+        }
+      }
     }
 
-    .contact{
+    .contact {
       form {
         display: flex;
         flex-direction: column;
@@ -119,32 +117,31 @@
         }
       }
 
-      .item{
+      .item {
         display: flex;
         align-items: flex-start;
-        border-bottom: 1px solid #3C3C3C;
+        border-bottom: 1px solid #3c3c3c;
         padding-bottom: 20px;
         margin-bottom: 15px;
         img {
           margin-right: 10px;
           margin-top: 4px;
         }
-        span{
+        span {
           color: #bbb;
           font-size: 14px;
         }
       }
     }
 
-    @include for-size(phone-only){
+    @include for-size(phone-only) {
       grid-template-columns: 1fr;
       grid-row-gap: 30px;
+      min-width: unset;
     }
-
   }
 
-  @include for-size(phone-only){
+  @include for-size(phone-only) {
     padding: 2rem;
   }
-
 }

@@ -204,8 +204,8 @@ const Header = ({ auth, logOutUser, t }) => {
                 }
               })}
               {!auth.isAuthenticated ? (
-                <li onClick={() => setOpenModal(true)}>
-                  {t("nav.signup_login")}
+                <li onClick={onCloseSideBar}>
+                  <Link to={"/auth"}>{t("nav.signup_login")}</Link>
                 </li>
               ) : (
                 <li onClick={onCloseSideBar}>
